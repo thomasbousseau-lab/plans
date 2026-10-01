@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Business Ops Lead — My first 5 months at Merge · Thomas Bousseau</title>
+<style>
+  :root {
+    --ink: #16202e;
+    --muted: #5b6676;
+    --line: #dfe4ea;
+    --bg: #f6f7f9;
+    --card: #ffffff;
+    --accent: #1f5fbf;
+    --accent-soft: #e8f0fc;
+    --hyp: #8a5a00;
+    --hyp-soft: #fdf3dc;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 15px/1.55 "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  }
+  main { max-width: 920px; margin: 0 auto; padding: 32px 16px 48px; }
+  h1 { font-size: 30px; line-height: 1.2; margin: 6px 0 10px; letter-spacing: -0.01em; }
+  h2 { font-size: 19px; margin: 36px 0 12px; }
+  h3 { font-size: 16px; margin: 0 0 6px; }
+  p { margin: 0 0 10px; }
+  ul { margin: 0; padding-left: 18px; }
+  li { margin-bottom: 4px; }
+  a { color: var(--accent); }
+  .eyebrow { color: var(--accent); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: .06em; }
+  .lede { font-size: 17px; color: var(--muted); max-width: 70ch; }
+  .byline { color: var(--muted); font-size: 13px; margin-top: 12px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; }
+  .grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
+  .fact .k { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .05em; }
+  .fact .v { font-size: 17px; font-weight: 600; margin: 2px 0; }
+  .tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 1px 7px; border-radius: 99px; background: var(--accent-soft); color: var(--accent); }
+  .tag.hyp { background: var(--hyp-soft); color: var(--hyp); }
+  .legend { color: var(--muted); font-size: 13px; margin-bottom: 12px; }
+  .label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
+  .month { display: grid; grid-template-columns: 92px 1fr; gap: 16px; margin-bottom: 12px; break-inside: avoid; }
+  .month .num { font-weight: 700; color: var(--accent); font-size: 13px; text-transform: uppercase; letter-spacing: .05em; padding-top: 2px; }
+  .month .cols { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-top: 10px; }
+  .month .label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
+  .validate { margin-top: 10px; padding: 8px 12px; border-radius: 8px; background: var(--hyp-soft); color: var(--hyp); font-size: 14px; }
+  .proof { margin-top: 8px; font-size: 14px; color: var(--muted); }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+  footer { margin-top: 36px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+  @media (max-width: 560px) {
+    h1 { font-size: 24px; }
+    .month { grid-template-columns: 1fr; gap: 4px; }
+  }
+  @page { size: A4; margin: 11mm 12mm; }
+  @media print {
+    body { background: #fff; font-size: 9px; line-height: 1.4; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    main { padding: 0; max-width: none; }
+    h1 { font-size: 18px; margin: 2px 0 5px; }
+    h2 { font-size: 12px; margin: 11px 0 5px; break-after: avoid; }
+    h3 { font-size: 10.5px; margin: 0 0 3px; }
+    p { margin: 0 0 4px; }
+    li { margin-bottom: 1px; }
+    ul { padding-left: 13px; }
+    .eyebrow { font-size: 9px; }
+    .lede { font-size: 10.5px; max-width: none; }
+    .byline, .legend, footer { font-size: 8.5px; }
+    .byline { margin-top: 4px; } .legend { margin-bottom: 5px; }
+    .card { padding: 6px 9px; border-radius: 6px; break-inside: avoid; }
+    .grid { gap: 6px; grid-template-columns: repeat(3, 1fr); }
+    .grid[style] { margin-top: 7px !important; }
+    .card[style] { margin-top: 6px !important; }
+    .fact .k, .label, th, .month .label { font-size: 7.5px; margin-bottom: 1px; }
+    .fact .v { font-size: 10px; margin: 1px 0; }
+    .tag { font-size: 7.5px; padding: 0 5px; }
+    .month { grid-template-columns: 1fr; gap: 2px; margin-bottom: 7px; break-inside: avoid; }
+    .month .num { font-size: 8px; padding-top: 0; }
+    .month .cols { grid-template-columns: 1fr 1.15fr 0.85fr; gap: 9px; margin-top: 4px; }
+    .proof, .validate { font-size: 9px; margin-top: 4px; }
+    .validate { padding: 4px 8px; border-radius: 5px; }
+    table { font-size: 9px; } th, td { padding: 4px 6px; }
+    footer { margin-top: 10px; padding-top: 6px; }
+    .sources { display: none; }
+  }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta name="robots" content="noindex, nofollow">
+<style>
+  :root { --ink: #0d0d1d; --muted: #525252; --line: #e3e6e8; --bg: #f9f9f9; --card: #ffffff;
+          --accent: #007a76; --accent-soft: rgba(0, 158, 155, 0.1); --teal: #00a09b; --navy: #1c1f46; }
+  body { font-family: "DM Sans", "Segoe UI", system-ui, sans-serif; }
+  h1, h2, h3, .fact .v { font-weight: 500; letter-spacing: -0.4px; }
+  h1 em { font-style: normal; color: #3fd0ca; }
+  header { background: var(--navy); color: #fff; border-radius: 16px; padding: 28px 28px 22px; }
+  header .eyebrow { color: #3fd0ca; }
+  header .lede { color: rgba(255, 255, 255, 0.85); }
+  header .byline, header .byline a { color: rgba(255, 255, 255, 0.7); }
+  .card { border-radius: 16px; }
+  .cta { display: inline-block; background: var(--teal); color: #f9f9f9; font: 500 15px Inter, "DM Sans", sans-serif; padding: 11px 20px; border-radius: 8px; text-decoration: none; margin-top: 16px; }
+  .cta:hover { background: #008c88; }
+  .cta-block { text-align: center; padding: 26px 18px; }
+  .cta-block p { color: var(--muted); max-width: 52ch; margin: 0 auto; }
+  .card.tint { background: var(--accent-soft); border-color: transparent; }
+  .card.tint .k { color: var(--accent); font-weight: 600; }
+  .validate { border-radius: 12px; }
+  th { color: var(--accent); }
+  footer strong { color: var(--accent); }
+  @media print {
+    header { padding: 12px 14px 9px; border-radius: 8px; }
+    .cta { font-size: 9px; padding: 5px 10px; margin-top: 6px; border-radius: 5px; }
+    .cta-block { padding: 8px; }
+    .card { border-radius: 8px; }
+  }
+</style>
+</head>
+
+<body>
+<main>
+<header>
+<div class="eyebrow">Merge · Business Ops Lead</div>
+<h1>My first 5 months: building the <em>operational backbone</em> in Paris</h1>
+<p class="lede">Merge has the licences, the product and the clients. My reading is that the next step is to make the Paris entity run as a full company while the team grows fast, without slowing execution. Here is how I would start.</p>
+<p class="byline">Thomas Bousseau · thomas.bousseau@gmail.com · <a href="https://www.linkedin.com/in/thomasbousseau/">LinkedIn</a> · October 2026</p>
+<a class="cta" href="https://calendar.app.google/NYQLfD6jTTK2rtkw7">Book a meeting to chat</a>
+</header>
+
+<div class="grid" style="margin-top:20px">
+<div class="card fact tint"><div class="k">Workstream 1</div><div class="v">A Paris entity that runs</div><p>People and financial operations: simple, written, repeatable.</p></div>
+<div class="card fact tint"><div class="k">Workstream 2</div><div class="v">Fast onboarding, full controls</div><p>From signed contract to first payment, with less waiting.</p></div>
+<div class="card fact tint"><div class="k">Workstream 3</div><div class="v">A regulatory calendar where nothing slips</div><p>Every filing has a date, an owner and a backup.</p></div>
+</div>
+<div class="card" style="margin-top:12px">
+<div class="label">At month 5, you will have</div>
+<ul>
+<li>A Paris operating manual that the team uses every day (hiring, onboarding, budget, cash, vendor payments).</li>
+<li>A measured customer onboarding journey, with the first improvements live.</li>
+<li>One regulatory calendar with clear owners, shared with Compliance and Legal.</li>
+<li>A review with real numbers and a 12-month operations roadmap.</li>
+</ul>
+<p class="proof">Why 5 months and not 100 days: it leaves time to measure results, and the review comes before the end of a trial period.</p>
+</div>
+
+<h2>My reading of Merge</h2>
+<p class="legend">Built only from public information.
+<span class="tag">public</span> published information ·
+<span class="tag hyp">my guess</span> my own estimate, to confirm with you.</p>
+<div class="grid">
+<div class="card fact"><div class="k">Hiring</div><div class="v">6 Paris roles opened on the same day, 5 of them in Compliance</div><span class="tag">public</span></div><div class="card fact"><div class="k">Licences</div><div class="v">EMI (ACPR) and DASP (AMF) in France, announced live in May 2025</div><span class="tag">public</span></div><div class="card fact"><div class="k">Scale</div><div class="v">Payment volume above $3Bn per year, as stated by your team on LinkedIn</div><span class="tag">public</span></div><div class="card fact"><div class="k">Why this role now</div><div class="v">Paris moves from "licence granted" to "fully operated from Paris"</div><span class="tag hyp">my guess</span></div><div class="card fact"><div class="k">Team</div><div class="v">Around 20 people, mostly engineering; a small Paris office that will grow fast</div><span class="tag hyp">my guess</span></div><div class="card fact"><div class="k">This role</div><div class="v">The first operations profile in Paris, taking daily operations off the leadership team</div><span class="tag hyp">my guess</span></div>
+</div>
+
+<h2>The three workstreams</h2>
+<section class="month"><div class="num">Workstream 1</div><div class="card">
+<h3>A Paris entity that runs</h3><p>Several new people will join a small office at the same time. Without simple basics, every hire and every invoice takes leadership time. <em>Covers: People Operations and Financial Operations.</em></p>
+<div class="cols">
+<div><div class="label">What I will look at first</div><ul><li>How hiring, contracts and payroll work today, and who does them (Paris, London, external provider).</li><li>How budget, cash and vendor payments are tracked.</li><li>Which daily tasks reach the leadership team and should not.</li></ul></div>
+<div><div class="label">Actions</div><ul><li>One onboarding path for every new hire: contract, payroll, tool access, first-week plan.</li><li>A monthly rhythm: budget against actual, cash position, vendor payment calendar.</li><li>Short written policies: expenses, purchasing, approvals, leave.</li><li>Automation of repeated steps with no-code tools, where it really saves time.</li></ul></div>
+<div><div class="label">What you get</div><p>A Paris operating manual (version 1) and a monthly operations report.</p><div class="label">Main indicator</div><p>Days between a signed offer and a new hire who is fully operational.</p></div>
+</div>
+<p class="proof"><strong>Done before:</strong> At Voila Vinos, the company I co-founded, I managed cash, vendor payments, budget and HR myself, with more than 30 employees. At Golden Bees (Groupe Figaro), I saved 3 full-time positions at the same volume by automating operational workflows.</p>
+<div class="validate">To check with you: what is already handled from London or by external providers.</div>
+</div></section>
+<section class="month"><div class="num">Workstream 2</div><div class="card">
+<h3>Fast customer onboarding, with full controls</h3><p>Between a signed contract and a first payment there are checks, documents and handovers. This is where speed and compliance meet. <em>Covers: Customer Operations.</em></p>
+<div class="cols">
+<div><div class="label">What I will look at first</div><ul><li>Each step from signed contract to first live payment, and the time each step takes.</li><li>Where files wait: missing documents, back-and-forth, handovers between Sales, Compliance and Operations.</li><li>The most frequent reasons for escalations.</li></ul></div>
+<div><div class="label">Actions</div><ul><li>A map of the journey with real times, shared with Compliance and Customer Success.</li><li>A clear document checklist for each client type, so clients send the right file the first time.</li><li>One owner and one visible status for each onboarding.</li><li>An escalation path with response times, and a monthly review of repeated issues.</li></ul></div>
+<div><div class="label">What you get</div><p>An onboarding playbook and a tracking dashboard.</p><div class="label">Main indicator</div><p>Days between a signed contract and the first live payment.</p></div>
+</div>
+<p class="proof"><strong>Done before:</strong> At Groupe Figaro, I restructured the Care team, rebuilt how accounts are assigned and deployed AI agents to automate support. At Golden Bees, churn went from 60% to 49% in 12 months through better service quality and client data dashboards.</p>
+<div class="validate">To check with you: the current onboarding time and volumes, and which steps Compliance must fully own.</div>
+</div></section>
+<section class="month"><div class="num">Workstream 3</div><div class="card">
+<h3>A regulatory calendar where nothing slips</h3><p>A regulated business has many deadlines: filings, reports, audits. The risk is not the rule itself, it is a date without a clear owner. <em>Covers: Regulatory Operations.</em></p>
+<div class="cols">
+<div><div class="label">What I will look at first</div><ul><li>The full list of filings, reports and audits, with dates and current owners.</li><li>How deadlines are tracked today.</li><li>Who does what between the Regulatory Operations Lead, Compliance, Legal, Finance and this role.</li></ul></div>
+<div><div class="label">Actions</div><ul><li>One shared calendar, with an owner and a backup for every deadline.</li><li>A responsibility matrix agreed with the MLRO and the Regulatory Operations Lead.</li><li>Checklists and reminders before each deadline.</li><li>An audit-ready folder: evidence is stored when the work is done, not just before the audit.</li></ul></div>
+<div><div class="label">What you get</div><p>A regulatory calendar and a responsibility matrix.</p><div class="label">Main indicator</div><p>Share of regulatory deadlines that are ready at least one week early.</p></div>
+</div>
+<p class="proof"><strong>My honest position:</strong> I have not worked in a regulated fintech. The regulatory expertise stays with your Compliance team. What I bring is operating discipline: clear owners, KPI frameworks and processes that people really follow.</p>
+<div class="validate">To check with you: how this role and the Regulatory Operations Lead share the work.</div>
+</div></section>
+
+<h2>Timeline</h2>
+<div class="card table-wrap"><table>
+<thead><tr><th>Workstream</th><th>Understand<br>weeks 1 to 6</th><th>First results<br>months 2 and 3</th><th>Structure and make it last<br>months 4 and 5</th></tr></thead>
+<tbody>
+<tr><td><strong>1. A Paris entity that runs</strong></td><td>Meet everyone. List how things work today. Support the first new hires.</td><td>Onboarding path live. First monthly report. Baseline numbers fixed.</td><td>Operating manual in use. Repeated steps automated.</td></tr>
+<tr><td><strong>2. Fast onboarding, full controls</strong></td><td>Follow real onboardings step by step. Measure times.</td><td>Checklists, owner and status tracking live. Escalation path agreed.</td><td>Dashboard and monthly review. Results against the baseline.</td></tr>
+<tr><td><strong>3. Regulatory calendar</strong></td><td>List all deadlines and owners with Compliance and Legal.</td><td>Shared calendar and responsibility matrix agreed.</td><td>Audit-ready folder. Month-5 review and 12-month roadmap.</td></tr>
+</tbody></table></div>
+
+<div class="grid" style="margin-top:12px">
+<div class="card"><h3>What I will not do</h3><ul>
+<li>Change a compliance control or policy without the MLRO and Compliance.</li>
+<li>Buy or replace a tool before I understand the process behind it.</li>
+<li>Add a process that slows execution. If a rule does not help the team, it goes.</li>
+</ul></div>
+<div class="card"><h3>What I will need</h3><ul>
+<li>Access to finance, HR and onboarding data from week 1.</li>
+<li>A weekly 30-minute meeting with my manager.</li>
+<li>An introduction to the MLRO, the Regulatory Operations Lead and Finance.</li>
+</ul></div>
+</div>
+
+<h2>How this covers the role</h2>
+<div class="card table-wrap"><table>
+<thead><tr><th>Area in the job description</th><th>Where</th><th>What you get</th></tr></thead>
+<tbody>
+<tr><td><strong>Financial Operations</strong>: budgeting, forecasting, cash management, vendor payments, reporting; audits and controls with Finance; automation and process design</td><td>Workstream 1 · all phases</td><td>Monthly rhythm and report, vendor payment calendar, automated steps</td></tr>
+<tr><td><strong>People Operations</strong>: employee lifecycle from hiring to onboarding; processes, policies and operating rhythms; organisational planning</td><td>Workstream 1 · from week 1</td><td>Onboarding path, written policies, operating manual</td></tr>
+<tr><td><strong>Customer Operations</strong>: customer onboarding and workflows; customer experience; escalations and service quality</td><td>Workstream 2 · all phases</td><td>Onboarding playbook, dashboard, escalation path</td></tr>
+<tr><td><strong>Regulatory Operations</strong>: filings, reporting, audits; work with Legal and Compliance; processes that do not slow execution</td><td>Workstream 3 · all phases</td><td>Regulatory calendar, responsibility matrix, audit-ready folder</td></tr>
+</tbody></table></div>
+
+<h2>What I do not know yet</h2>
+<div class="card">
+<p>This plan is a starting point for a discussion. These answers would change it:</p>
+<ul>
+<li>Who does this role report to, and where is that person based?</li>
+<li>How is the work shared with the Regulatory Operations Lead?</li>
+<li>What is already in place in Paris, and what is handled from London?</li>
+<li>How long does a customer onboarding take today, and how many are in progress?</li>
+</ul>
+</div>
+
+<div class="card cta-block" style="margin-top:24px">
+<h3>Let's test this plan against your reality</h3>
+<p>20 minutes is enough to tell me where I am right and where I am wrong.</p>
+<a class="cta" href="https://calendar.app.google/NYQLfD6jTTK2rtkw7">Book a meeting to chat</a>
+</div>
+
+<footer>
+<p>Thomas Bousseau · thomas.bousseau@gmail.com</p>
+<p class="sources">Public sources, read on 1 October 2026: <a href="https://jobs.ashbyhq.com/mergemoney">Merge job board</a> · <a href="https://www.merge.money/">merge.money</a> · <a href="https://thefintechtimes.com/french-regulators-approve-merge-for-fiat-and-stablecoin-payment-services/">The Fintech Times</a> · <a href="https://www.linkedin.com/company/mergemoney/">Merge on LinkedIn</a></p>
+</footer>
+</main>
+</body>
+</html>
