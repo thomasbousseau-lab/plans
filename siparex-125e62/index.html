@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Operating Partner Digital & IA — Mes 5 premiers mois chez Siparex · Thomas Bousseau</title>
+<style>
+  :root {
+    --ink: #16202e;
+    --muted: #5b6676;
+    --line: #dfe4ea;
+    --bg: #f6f7f9;
+    --card: #ffffff;
+    --accent: #1f5fbf;
+    --accent-soft: #e8f0fc;
+    --hyp: #8a5a00;
+    --hyp-soft: #fdf3dc;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 15px/1.55 "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  }
+  main { max-width: 920px; margin: 0 auto; padding: 32px 16px 48px; }
+  h1 { font-size: 30px; line-height: 1.2; margin: 6px 0 10px; letter-spacing: -0.01em; }
+  h2 { font-size: 19px; margin: 36px 0 12px; }
+  h3 { font-size: 16px; margin: 0 0 6px; }
+  p { margin: 0 0 10px; }
+  ul { margin: 0; padding-left: 18px; }
+  li { margin-bottom: 4px; }
+  a { color: var(--accent); }
+  .eyebrow { color: var(--accent); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: .06em; }
+  .lede { font-size: 17px; color: var(--muted); max-width: 70ch; }
+  .byline { color: var(--muted); font-size: 13px; margin-top: 12px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; }
+  .grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
+  .fact .k { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .05em; }
+  .fact .v { font-size: 17px; font-weight: 600; margin: 2px 0; }
+  .tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 1px 7px; border-radius: 99px; background: var(--accent-soft); color: var(--accent); }
+  .tag.hyp { background: var(--hyp-soft); color: var(--hyp); }
+  .legend { color: var(--muted); font-size: 13px; margin-bottom: 12px; }
+  .label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
+  .month { display: grid; grid-template-columns: 92px 1fr; gap: 16px; margin-bottom: 12px; break-inside: avoid; }
+  .month .num { font-weight: 700; color: var(--accent); font-size: 13px; text-transform: uppercase; letter-spacing: .05em; padding-top: 2px; }
+  .month .cols { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-top: 10px; }
+  .month .label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
+  .validate { margin-top: 10px; padding: 8px 12px; border-radius: 8px; background: var(--hyp-soft); color: var(--hyp); font-size: 14px; }
+  .proof { margin-top: 8px; font-size: 14px; color: var(--muted); }
+  .note { border-left: 3px solid var(--accent); background: var(--card); border-radius: 8px; padding: 12px 16px; margin-top: 16px; color: var(--muted); }
+  .note strong { color: var(--ink); }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+  footer { margin-top: 36px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+  @media (max-width: 560px) {
+    h1 { font-size: 24px; }
+    .month { grid-template-columns: 1fr; gap: 4px; }
+  }
+  @page { size: A4; margin: 8mm 11mm; }
+  @media print {
+    body { background: #fff; font-size: 9px; line-height: 1.4; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    main { padding: 0; max-width: none; }
+    h1 { font-size: 18px; margin: 2px 0 5px; }
+    h2 { font-size: 12px; margin: 8px 0 4px; break-after: avoid; }
+    h3 { font-size: 10.5px; margin: 0 0 3px; }
+    p { margin: 0 0 4px; }
+    li { margin-bottom: 1px; }
+    ul { padding-left: 13px; }
+    .eyebrow { font-size: 9px; }
+    .lede { font-size: 10.5px; max-width: none; }
+    .byline, .legend, footer { font-size: 8.5px; }
+    .byline { margin-top: 4px; } .legend { margin-bottom: 5px; }
+    .card { padding: 6px 9px; border-radius: 6px; break-inside: avoid; }
+    .grid { gap: 6px; grid-template-columns: repeat(3, 1fr); }
+    .grid[style] { margin-top: 7px !important; }
+    .card[style] { margin-top: 6px !important; }
+    .fact .k, .label, th, .month .label { font-size: 7.5px; margin-bottom: 1px; }
+    .fact .v { font-size: 10px; margin: 1px 0; }
+    .tag { font-size: 7.5px; padding: 0 5px; }
+    .month { grid-template-columns: 1fr; gap: 2px; margin-bottom: 7px; break-inside: avoid; }
+    .month .num { font-size: 8px; padding-top: 0; }
+    .month .cols { grid-template-columns: 1fr 1.15fr 0.85fr; gap: 9px; margin-top: 4px; }
+    .proof, .validate { font-size: 9px; margin-top: 4px; }
+    .validate { padding: 4px 8px; border-radius: 5px; }
+    table { font-size: 9px; } th, td { padding: 4px 6px; }
+    footer { margin-top: 10px; padding-top: 6px; }
+    .sources { display: none; }
+  }
+</style>
+<meta name="robots" content="noindex, nofollow">
+<script>if(location.hostname.endsWith('github.io')){var s=document.createElement('script');s.async=true;s.dataset.goatcounter='https://thomasbousseau.goatcounter.com/count';s.src='https://gc.zgo.at/count.js';document.head.appendChild(s);}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --ink: #231f20; --muted: #5c5657; --line: #dcdcd3; --bg: #f3f3ed; --card: #ffffff;
+          --accent: #c8392a; --accent-soft: #fde9e6; --coral: #f35443; }
+  body { font-family: "Open Sans", "Segoe UI", system-ui, sans-serif; }
+  h1, h2, h3, .fact .v, .stat .n { font-family: "Gowun Batang", Georgia, serif; font-weight: 400; letter-spacing: 0; }
+  h1 { font-size: 34px; } h2 { font-size: 24px; color: var(--accent); } h3 { font-size: 19px; }
+  h1 em { font-style: normal; color: var(--coral); }
+  header { background: var(--ink); color: #fff; border-radius: 0 0 28px 0; padding: 30px 30px 26px; }
+  header .eyebrow { color: var(--coral); }
+  header .lede { color: #f3f3ed; }
+  header .byline, header .byline a { color: #bfbfb2; }
+  .card, .validate, .note { border-radius: 0 0 20px 0; }
+  .card.tint { background: var(--ink); border-color: var(--ink); color: #f3f3ed; }
+  .card.tint .k { color: var(--coral); font-weight: 700; }
+  .card.tint .v { color: #fff; }
+  .cta { display: inline-block; background: var(--coral); color: #fff; border: 2px solid var(--coral); font: 700 15px "Open Sans", sans-serif;
+         padding: 10px 20px; border-radius: 0 0 20px 0; text-decoration: none; margin: 16px 10px 0 0; }
+  .cta:hover { background: #d94433; border-color: #d94433; }
+  .cta.ghost { background: #fff; color: var(--ink); }
+  .cta.ghost:hover { background: var(--bg); }
+  .cta-block { text-align: center; padding: 26px 18px; }
+  .cta-block p { color: var(--muted); max-width: 54ch; margin: 0 auto; }
+  .note { border-left: 3px solid var(--coral); background: var(--card); padding: 12px 16px; margin-top: 16px; color: var(--muted); }
+  .note strong { color: var(--ink); }
+  .stats { display: grid; gap: 12px; grid-template-columns: repeat(3, 1fr); }
+  .mission .grid { grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .mission .card { padding: 12px 14px; }
+  .mission .card p { font-size: 13.5px; margin: 0; }
+  @media (max-width: 820px) { .stats { grid-template-columns: 1fr; } .mission .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .mission .grid { grid-template-columns: 1fr; } }
+  .stat { background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--coral); border-radius: 0 0 20px 0; padding: 14px 16px; }
+  .stat .n { font-size: 34px; line-height: 1.1; color: var(--ink); }
+  .stat .w { font-weight: 600; margin: 4px 0 2px; }
+  .stat .c { color: var(--muted); font-size: 13px; }
+  .mission { background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--coral); border-radius: 0 0 20px 0; padding: 16px 18px; margin-top: 12px; }
+  .mission .label { color: var(--accent); }
+  .mission .card { background: var(--bg); border-color: transparent; }
+  .mission .k2 { font-weight: 700; margin-bottom: 4px; }
+  .mission .after { color: var(--muted); margin: 10px 0 0; }
+  .ws { background: var(--card); border: 1px solid var(--line); border-radius: 0 0 20px 0; margin-bottom: 14px; overflow: hidden; break-inside: avoid; }
+  .ws-head { background: var(--ink); color: #f3f3ed; padding: 14px 18px; }
+  .ws-head .ws-num { color: var(--coral); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
+  .ws-head h3 { color: #fff; margin: 2px 0 4px; }
+  .ws-head p { margin: 0; color: #d9d9d0; }
+  .ws-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; padding: 14px 18px; }
+  .ws-cols .label { font-size: 12px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
+  .ws-cols p { margin: 0 0 8px; }
+  .ws-foot { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
+  .ws-foot > div { padding: 10px 18px; font-size: 14px; }
+  .ws-foot span { display: block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 2px; }
+  .ws-foot .done { background: var(--accent-soft); } .ws-foot .done span { color: var(--accent); }
+  .ws-foot .check { background: var(--hyp-soft); color: var(--hyp); }
+  @media (max-width: 720px) { .ws-cols, .ws-foot { grid-template-columns: 1fr; } }
+  .proof { color: var(--ink); background: var(--accent-soft); padding: 10px 14px; border-radius: 0 0 16px 0; font-size: 14.5px; }
+  th { color: var(--accent); }
+  @media print {
+    h1 { font-size: 19px; } h2 { font-size: 13px; } h3 { font-size: 11px; }
+    header { padding: 11px 14px 9px; border-radius: 0 0 12px 0; }
+    .card, .validate, .note, .stat, .proof { border-radius: 0 0 8px 0; }
+    .cta { font-size: 9px; padding: 4px 10px; margin: 6px 6px 0 0; border-width: 1px; border-radius: 0 0 8px 0; }
+    .cta-block { padding: 8px; }
+    .note { padding: 5px 9px; margin-top: 6px; }
+    .stats { gap: 6px; grid-template-columns: repeat(3, 1fr); }
+    .mission .card { padding: 5px 7px; } .mission .card p { font-size: 8.5px; }
+    .mission { padding: 6px 9px; margin-top: 6px; border-radius: 0 0 8px 0; }
+    .mission .grid { grid-template-columns: repeat(4, 1fr); }
+    .mission .after { margin-top: 4px; }
+    .stat { padding: 5px 7px; border-top-width: 2px; }
+    .stat .n { font-size: 15px; } .stat .w { font-size: 8px; margin: 1px 0; } .stat .c { font-size: 7.5px; }
+    .proof { padding: 4px 8px; font-size: 9px; }
+    .ws { margin-bottom: 6px; border-radius: 0 0 8px 0; }
+    .ws-head { padding: 5px 9px; } .ws-head .ws-num { font-size: 7.5px; } .ws-head h3 { margin: 0 0 1px; }
+    .ws-cols { gap: 9px; padding: 5px 9px; } .ws-cols .label, .ws-foot span { font-size: 7.5px; margin-bottom: 1px; } .ws-cols p { margin: 0 0 3px; }
+    .ws-foot > div { padding: 4px 9px; font-size: 9px; }
+  }
+</style>
+</head>
+
+<body>
+<main>
+<header>
+<div class="eyebrow">Siparex · Operating Partner Digital &amp; IA</div>
+<h1>Mes 5 premiers mois : <em>démultiplier l'impact</em> de l'Operating Team</h1>
+<p class="lede">J'ai mené des transformations digitales et IA de l'intérieur, en CODIR, et je les mène aujourd'hui en mission de conseil : agents IA en production, lancement d'un SaaS, automatisation des opérations. Voici comment je mettrais cette expérience au service de vos participations.</p>
+<p class="byline">Thomas Bousseau · thomas.bousseau@gmail.com · <a href="https://www.linkedin.com/in/thomasbousseau/">LinkedIn</a> · Octobre 2026</p>
+<a class="cta" href="https://calendar.app.google/NYQLfD6jTTK2rtkw7" data-goatcounter-click="book-meeting-siparex-haut" data-goatcounter-title="Siparex : rendez-vous (haut)">Réserver un créneau dans mon agenda</a><a class="cta ghost" href="CV_Thomas_Bousseau.pdf" data-goatcounter-click="cv-siparex-haut" data-goatcounter-title="Siparex : CV (haut)">Voir mon CV</a>
+</header>
+
+<p class="note"><strong>Avant de lire.</strong> J'ai construit cette analyse avec les informations dont je dispose, c'est-à-dire des informations publiques. Elle est donc incomplète, et sans doute fausse par endroits. Je serais ravi d'en savoir plus pour rendre ce plan plus précis.</p>
+
+<h2>Ce que j'ai déjà réalisé</h2>
+<div class="stats">
+<div class="stat"><div class="n">80 %</div><div class="w">du temps de recommandation commerciale optimisé par l'IA</div><div class="c">Groupe Figaro, BU Emploi</div></div><div class="stat"><div class="n">1 SaaS</div><div class="w">IA-native conçu et lancé en autonomie</div><div class="c">Lila, avec 1 PO et 9 développeurs</div></div><div class="stat"><div class="n">−3 ETP</div><div class="w">à volume constant, par l'automatisation des workflows</div><div class="c">Golden Bees</div></div>
+</div>
+
+<div class="mission">
+<div class="label">Aujourd'hui, en mission de conseil · depuis septembre 2026</div>
+<h3>Transformation digitale et IA d'un cabinet d'audit et d'expertise comptable</h3>
+<p>Digitalisation et automatisation des processus transverses, en environnement réglementé et en direct avec les associés. Ce que la mission produit :</p>
+<div class="grid">
+<div class="card"><div class="k2">Diagnostic</div><p>Auditions de la direction et des collaborateurs, pour décrire les processus tels qu'ils sont vraiment exécutés.</p></div>
+<div class="card"><div class="k2">Matrice des accès</div><p>Qui accède à quoi, IA comprise : outils, personnes, droits, données réservées. La base d'une gouvernance de l'IA.</p></div>
+<div class="card"><div class="k2">Cartographie des processus</div><p>Jusqu'à 10 processus décrits selon la même grille : données, outils, faisabilité d'automatisation, temps gagné estimé.</p></div>
+<div class="card"><div class="k2">Feuille de route</div><p>Recommandations chiffrées une à une, comparaison des outils (Claude ou Copilot, Power Automate, Zapier, Make, n8n), maquette de tableau de bord.</p></div>
+</div>
+<p class="after">Puis la mise en œuvre : entrepôt de données, agents Claude et n8n connectés à Microsoft 365, formation des équipes et transfert complet pour rendre le cabinet autonome.</p>
+</div>
+
+<h2>Ma lecture de Siparex</h2>
+<p class="legend"><span class="tag">public</span> information publiée ·
+<span class="tag hyp">mon hypothèse</span> estimation de ma part, à confirmer avec vous.</p>
+<div class="grid">
+<div class="card fact"><div class="k">Portée</div><div class="v">L'Operating Team accompagne 70 % du portefeuille</div><span class="tag">public</span></div><div class="card fact"><div class="k">Demande</div><div class="v">86 % des dirigeants interrogés jugent l'IA prioritaire, contre 48 % un an plus tôt</div><span class="tag">public</span></div><div class="card fact"><div class="k">Méthode</div><div class="v">Une approche IA en 4 étapes, publiée avec Bpifrance en avril 2026</div><span class="tag">public</span></div><div class="card fact"><div class="k">Pourquoi ce poste</div><div class="v">La demande sur l'IA croît plus vite que la capacité de l'équipe</div><span class="tag hyp">mon hypothèse</span></div><div class="card fact"><div class="k">Ce que vous cherchez</div><div class="v">Quelqu'un qui « fait » et qui « fait faire » : missions et outillage</div><span class="tag hyp">mon hypothèse</span></div><div class="card fact"><div class="k">Outils</div><div class="v">Des outils IA déjà en place en interne, à étendre plutôt qu'à créer</div><span class="tag hyp">mon hypothèse</span></div>
+</div>
+
+<h2>Le plan en trois chantiers</h2>
+<div class="grid">
+<div class="card fact tint"><div class="k">Chantier 1</div><div class="v">Des feuilles de route IA qui produisent des résultats</div><p>Aux côtés des dirigeants des participations et des équipes d'investissement.</p></div>
+<div class="card fact tint"><div class="k">Chantier 2</div><div class="v">Une Operating Team industrialisée et agentifiée</div><p>Faire plus, sans dépendre de quelques experts.</p></div>
+<div class="card fact tint"><div class="k">Chantier 3</div><div class="v">Un écosystème vivant et visible</div><p>Clubs, partenaires, outils sur étagère, reporting.</p></div>
+</div>
+<div class="card" style="margin-top:12px">
+<div class="label">Au mois 5, vous aurez</div>
+<ul>
+<li>Des participations accompagnées avec une feuille de route IA formalisée et une première business review tenue.</li>
+<li>Un kit de mission (diagnostic, feuille de route, reporting) utilisé par l'équipe, et de premiers agents en service sur vos process.</li>
+<li>Une base de partenaires et des benchmarks à jour, des clubs animés avec un NPS mesuré.</li>
+<li>Un bilan chiffré et une feuille de route à 12 mois.</li>
+</ul>
+<p style="color:var(--muted)">Pourquoi 5 mois plutôt que 100 jours : c'est le temps qu'il faut pour mesurer des résultats, avec un bilan avant la fin de la période d'essai.</p>
+</div>
+
+<h2>Les chantiers en détail</h2>
+<section class="ws">
+<div class="ws-head"><span class="ws-num">Chantier 1</span><h3>Des feuilles de route IA qui produisent des résultats</h3><p>Le risque n'est plus l'absence de feuille de route, mais celle qui reste sur le papier.</p></div>
+<div class="ws-cols">
+<div><div class="label">Ce que je regarderai</div><ul><li>Les feuilles de route IA en cours : en production ou bloquées.</li><li>La mesure d'impact remontée aux équipes d'investissement.</li><li>Deux ou trois missions en binôme, pour apprendre vos standards.</li></ul></div>
+<div><div class="label">Ce que je ferai</div><ul><li>Mener des missions : diagnostic, feuille de route centrée sur 2 à 3 cas d'usage.</li><li>Tenir des business reviews avec chaque dirigeant.</li><li>Contribuer aux due diligences digitales.</li></ul></div>
+<div><div class="label">Ce que vous aurez</div><p>Une feuille de route et un suivi par participation.</p><div class="label">Indicateur</div><p>Cas d'usage IA passés en production.</p></div>
+</div>
+<div class="ws-foot">
+<div class="done"><span>Déjà fait</span>Diagnostic, feuille de route et agents IA pour un cabinet d'audit, en mission. Agents IA et 80 % de temps gagné sur la recommandation commerciale au Groupe Figaro.</div>
+<div class="check"><span>À valider avec vous</span>Les participations et les secteurs prioritaires des six prochains mois.</div>
+</div>
+</section>
+<section class="ws">
+<div class="ws-head"><span class="ws-num">Chantier 2</span><h3>Une Operating Team industrialisée et agentifiée</h3><p>Réduire la dépendance à l'expertise individuelle : un travail de produit autant que de conseil.</p></div>
+<div class="ws-cols">
+<div><div class="label">Ce que je regarderai</div><ul><li>Les livrables types et le temps passé sur chacun.</li><li>Les tâches répétées d'une mission à l'autre.</li><li>Les outils IA en place et vos règles de confidentialité.</li></ul></div>
+<div><div class="label">Ce que je ferai</div><ul><li>Un kit de mission : modèles de diagnostic, de feuille de route, de reporting.</li><li>De premiers agents sur les tâches à faible risque.</li><li>Une relecture humaine systématique des livrables.</li></ul></div>
+<div><div class="label">Ce que vous aurez</div><p>Un kit de mission et des agents utilisables par toute l'équipe.</p><div class="label">Indicateur</div><p>Temps de production d'un livrable type.</p></div>
+</div>
+<div class="ws-foot">
+<div class="done"><span>Déjà fait</span>Backend unifiant Brief → Trading → Reporting et 3 ETP économisés chez Golden Bees. Pratique quotidienne de Claude et n8n.</div>
+<div class="check"><span>À valider avec vous</span>Les outils IA en place et les données qu'il est permis d'y traiter.</div>
+</div>
+</section>
+<section class="ws">
+<div class="ws-head"><span class="ws-num">Chantier 3</span><h3>Un écosystème vivant et visible</h3><p>Clubs, partenaires et outils sur étagère distinguent votre Operating Team : ils doivent rester à jour et se faire connaître.</p></div>
+<div class="ws-cols">
+<div><div class="label">Ce que je regarderai</div><ul><li>Les clubs : calendrier, retours, NPS actuel.</li><li>La base de partenaires : couverture et fraîcheur.</li><li>L'usage réel des outils sur étagère.</li></ul></div>
+<div><div class="label">Ce que je ferai</div><ul><li>Qualifier de nouveaux partenaires là où la base est mince.</li><li>Co-animer les clubs autour de cas concrets.</li><li>Fournir des résultats chiffrés au reporting et à la communication.</li></ul></div>
+<div><div class="label">Ce que vous aurez</div><p>Une base de partenaires qualifiée et un programme de clubs.</p><div class="label">Indicateur</div><p>NPS des clubs, objectif 4,5 / 5.</p></div>
+</div>
+<div class="ws-foot">
+<div class="done"><span>Déjà fait</span>13 partenariats jobboards et 30 partenaires ATS intégrés chez Golden Bees. Go-to-market complet de Lila.</div>
+<div class="check"><span>À valider avec vous</span>La part du temps attendue sur l'animation et la communication.</div>
+</div>
+</section>
+
+<h2>Calendrier</h2>
+<div class="card table-wrap"><table>
+<thead><tr><th>Chantier</th><th>Comprendre<br>semaines 1 à 6</th><th>Premiers résultats<br>mois 2 et 3</th><th>Structurer et pérenniser<br>mois 4 et 5</th></tr></thead>
+<tbody>
+<tr><td><strong>1. Feuilles de route IA</strong></td><td>Rencontrer l'équipe et les investisseurs. Suivre 2 à 3 missions en binôme. Lire les feuilles de route en cours.</td><td>Premières missions menées. Premières business reviews. Contribution à une due diligence si le calendrier le permet.</td><td>Suivi d'impact partagé avec les équipes d'investissement. Bilan des cas d'usage en production.</td></tr>
+<tr><td><strong>2. Industrialiser et agentifier</strong></td><td>Recenser les livrables et les tâches répétées. Comprendre les outils et les règles de confidentialité.</td><td>Kit de mission en version 1. Un premier agent en test sur une tâche à faible risque.</td><td>Kit adopté par l'équipe. Agents en service, gain de temps mesuré.</td></tr>
+<tr><td><strong>3. Écosystème</strong></td><td>Assister aux clubs. Passer en revue la base de partenaires et les outils sur étagère.</td><td>Nouveaux partenaires qualifiés. Première session de club co-animée.</td><td>NPS mesuré. Contenus pour le reporting. Feuille de route à 12 mois.</td></tr>
+</tbody></table></div>
+
+<div class="grid" style="margin-top:12px">
+<div class="card"><h3>Ce que je ne ferai pas</h3><ul>
+<li>Recommander un outil à une participation avant d'avoir compris son processus.</li>
+<li>Me substituer au dirigeant ou à l'équipe d'investissement : mon rôle est celui d'un business partner.</li>
+<li>Automatiser un livrable au détriment de sa qualité.</li>
+</ul></div>
+<div class="card"><h3>Ce dont j'aurai besoin</h3><ul>
+<li>L'accès aux livrables et aux feuilles de route existants, dès la première semaine.</li>
+<li>Un binôme sur les premières missions et sur une due diligence.</li>
+<li>Un point hebdomadaire de 30 minutes avec le Partner Operating Team.</li>
+</ul></div>
+<div class="card"><h3>Ma position, en toute franchise</h3>
+<p>Je ne viens pas du capital-investissement, et les due diligences seront nouvelles pour moi : je les apprendrai auprès de votre équipe. Ce que j'apporte, c'est l'autre côté de la table : j'ai conduit ces transformations comme dirigeant opérationnel, puis comme consultant.</p></div>
+</div>
+
+<h2>Couverture des missions du poste</h2>
+<div class="card table-wrap"><table>
+<thead><tr><th>Mission de l'offre</th><th>Où</th><th>Ce que vous aurez en main</th></tr></thead>
+<tbody>
+<tr><td><strong>1. Accompagnement des participations</strong> : plan de transformation digitale et IA, résolution de problématiques opérationnelles, mesure d'impact</td><td>Chantier 1 · toutes phases</td><td>Feuilles de route, business reviews, suivi qualité, coûts, délais</td></tr>
+<tr><td><strong>2. Support aux opérations d'investissement</strong> : due diligences digitales, notes de synthèse</td><td>Chantier 1 · à partir du mois 2</td><td>Contributions aux due diligences, analyses thématiques</td></tr>
+<tr><td><strong>3. Animation et enrichissement des outils</strong> : partenaires, benchmarks, clubs, industrialisation, agentification</td><td>Chantiers 2 et 3 · toutes phases</td><td>Kit de mission, agents, base de partenaires, clubs animés</td></tr>
+<tr><td><strong>4. Valorisation de l'offre</strong> : outils sur étagère, reporting aux souscripteurs, communication</td><td>Chantier 3 · mois 3 à 5</td><td>Outils à jour, contenus chiffrés pour le reporting</td></tr>
+</tbody></table></div>
+
+<h2>Ce que je ne sais pas encore</h2>
+<div class="card">
+<p>Ce plan est une base de discussion. Ces réponses le feraient évoluer :</p>
+<ul>
+<li>Comment le temps se répartit-il entre les participations, les due diligences, les outils et la communication ?</li>
+<li>Combien de missions chaque membre de l'équipe suit-il en parallèle ?</li>
+<li>Quels outils IA utilisez-vous déjà, et quelles données est-il permis d'y traiter ?</li>
+<li>Quelles participations et quels secteurs sont prioritaires dans les six prochains mois ?</li>
+</ul>
+</div>
+
+<div class="card cta-block" style="margin-top:24px">
+<h3>Confrontons ce plan à votre réalité</h3>
+<p>Vingt minutes suffisent pour me dire où je vois juste et où je me trompe.</p>
+<a class="cta" href="https://calendar.app.google/NYQLfD6jTTK2rtkw7" data-goatcounter-click="book-meeting-siparex-bas" data-goatcounter-title="Siparex : rendez-vous (bas)">Réserver un créneau dans mon agenda</a><a class="cta ghost" href="CV_Thomas_Bousseau.pdf" data-goatcounter-click="cv-siparex-bas" data-goatcounter-title="Siparex : CV (bas)">Voir mon CV</a>
+</div>
+
+<footer>
+<p>Thomas Bousseau · thomas.bousseau@gmail.com</p>
+<p class="sources">Sources publiques consultées le 1er octobre 2026 : <a href="https://www.siparex.com/plateforme/operating-team/">Siparex, Operating Team</a> · <a href="https://www.daf-mag.fr/fonction-finance-1242/gouvernance-strategie-2125/capital-investissement-le-fonds-siparex-a-contre-courant-du-marche-en-2025-24311">DAF Mag, janvier 2026</a> · <a href="https://presse.bpifrance.fr/siparex-et-bpifrance-publient-un-ouvrage-exclusif-sur-limpact-chiffre-de-lintelligence-artificielle-dans-les-pme-eti-francaises/?lang=fra">Bpifrance, avril 2026</a> · offre publiée sur Welcome to the Jungle</p>
+</footer>
+</main>
+</body>
+</html>
