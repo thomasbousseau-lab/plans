@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Revenue Operations Manager — Mes 5 premiers mois chez Combo · Thomas Bousseau</title>
+<style>
+  :root {
+    --ink: #16202e;
+    --muted: #5b6676;
+    --line: #dfe4ea;
+    --bg: #f6f7f9;
+    --card: #ffffff;
+    --accent: #1f5fbf;
+    --accent-soft: #e8f0fc;
+    --hyp: #8a5a00;
+    --hyp-soft: #fdf3dc;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 15px/1.55 "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  }
+  main { max-width: 920px; margin: 0 auto; padding: 32px 16px 48px; }
+  h1 { font-size: 30px; line-height: 1.2; margin: 6px 0 10px; letter-spacing: -0.01em; }
+  h2 { font-size: 19px; margin: 36px 0 12px; }
+  h3 { font-size: 16px; margin: 0 0 6px; }
+  p { margin: 0 0 10px; }
+  ul { margin: 0; padding-left: 18px; }
+  li { margin-bottom: 4px; }
+  a { color: var(--accent); }
+  .eyebrow { color: var(--accent); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: .06em; }
+  .lede { font-size: 17px; color: var(--muted); max-width: 70ch; }
+  .byline { color: var(--muted); font-size: 13px; margin-top: 12px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; }
+  .grid { display: grid; gap: 12px; grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 820px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .grid { grid-template-columns: 1fr; } }
+  .fact .k { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .05em; }
+  .fact .v { font-size: 17px; font-weight: 600; margin: 2px 0; }
+  .tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 1px 7px; border-radius: 99px; background: var(--accent-soft); color: var(--accent); }
+  .tag.hyp { background: var(--hyp-soft); color: var(--hyp); }
+  .legend { color: var(--muted); font-size: 13px; margin-bottom: 12px; }
+  .label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
+  .month { display: grid; grid-template-columns: 92px 1fr; gap: 16px; margin-bottom: 12px; break-inside: avoid; }
+  .month .num { font-weight: 700; color: var(--accent); font-size: 13px; text-transform: uppercase; letter-spacing: .05em; padding-top: 2px; }
+  .month .cols { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-top: 10px; }
+  .month .label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
+  .validate { margin-top: 10px; padding: 8px 12px; border-radius: 8px; background: var(--hyp-soft); color: var(--hyp); font-size: 14px; }
+  .proof { margin-top: 8px; font-size: 14px; color: var(--muted); }
+  .note { border-left: 3px solid var(--accent); background: var(--card); border-radius: 8px; padding: 12px 16px; margin-top: 16px; color: var(--muted); }
+  .note strong { color: var(--ink); }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+  footer { margin-top: 36px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+  @media (max-width: 560px) {
+    h1 { font-size: 24px; }
+    .month { grid-template-columns: 1fr; gap: 4px; }
+  }
+  /* composants communs */
+  :root { --head-bg: var(--ink); --head-fg: #ffffff; --head-accent: var(--accent); --btn-bg: var(--accent); --btn-fg: #ffffff;
+          --radius: 10px; --done-bg: var(--accent-soft); --check-bg: var(--hyp-soft); }
+  header.band { background: var(--head-bg); color: var(--head-fg); border-radius: var(--radius); padding: 30px 30px 26px; }
+  header.band .eyebrow { color: var(--head-accent); }
+  header.band .lede { color: var(--head-fg); opacity: .85; }
+  header.band .byline, header.band .byline a { color: var(--head-fg); opacity: .7; }
+  h1 em { font-style: normal; color: var(--head-accent); }
+  .card, .validate { border-radius: var(--radius); }
+  .card.tint { background: var(--accent-soft); border-color: transparent; }
+  .card.tint .k { color: var(--accent); font-weight: 700; }
+  .cta { display: inline-block; background: var(--btn-bg); color: var(--btn-fg); border: 2px solid var(--btn-bg); font-weight: 600; font-size: 15px;
+         padding: 10px 20px; border-radius: var(--radius); text-decoration: none; margin: 16px 10px 0 0; }
+  .cta.ghost { background: transparent; color: var(--head-fg); border-color: var(--head-fg); }
+  .cta-block { text-align: center; padding: 26px 18px; background: var(--head-bg); border-color: var(--head-bg); color: var(--head-fg); }
+  .cta-block h3 { color: var(--head-fg); }
+  .cta-block p { max-width: 54ch; margin: 0 auto; opacity: .8; }
+  .note { border-left: 3px solid var(--btn-bg); background: var(--card); border-radius: 4px; padding: 12px 16px; margin-top: 16px; color: var(--muted); }
+  .note strong { color: var(--ink); }
+  .stats { display: grid; gap: 12px; grid-template-columns: repeat(3, 1fr); }
+  .stat { background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--btn-bg); border-radius: var(--radius); padding: 14px 16px; }
+  .stat .n { font-size: 34px; line-height: 1.1; color: var(--ink); font-weight: 600; }
+  .stat .w { font-weight: 600; margin: 4px 0 2px; }
+  .stat .c { color: var(--muted); font-size: 13px; }
+  .mission { background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--btn-bg); border-radius: var(--radius); padding: 16px 18px; margin-top: 12px; }
+  .mission .label { color: var(--accent); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
+  .mission .grid { grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .mission .card { background: var(--bg); border-color: transparent; padding: 12px 14px; }
+  .mission .card p { font-size: 13.5px; margin: 0; }
+  .mission .k2 { font-weight: 700; margin-bottom: 4px; }
+  .mission .after { color: var(--muted); margin: 10px 0 0; }
+  .ws { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); margin-bottom: 14px; overflow: hidden; break-inside: avoid; }
+  .ws-head { background: var(--head-bg); color: var(--head-fg); padding: 14px 18px; }
+  summary.ws-head { display: block; cursor: pointer; list-style: none; position: relative; padding-right: 170px; }
+  summary.ws-head::-webkit-details-marker { display: none; }
+  .ws-head .ws-num { color: var(--head-accent); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
+  .ws-head h3 { color: var(--head-fg); margin: 2px 0 4px; }
+  .ws-head p { margin: 0; opacity: .8; }
+  .ws-toggle { position: absolute; right: 18px; top: 50%; transform: translateY(-50%); font-size: 13px; font-weight: 600;
+               border: 1px solid var(--head-fg); border-radius: 99px; padding: 5px 12px; white-space: nowrap; opacity: .9; }
+  .ws-toggle::before { content: attr(data-closed); }
+  details[open] .ws-toggle::before { content: attr(data-open); }
+  .ws-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; padding: 14px 18px; }
+  .ws-cols .label { font-size: 12px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
+  .ws-cols p { margin: 0 0 8px; }
+  .ws-foot { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
+  .ws-foot > div { padding: 10px 18px; font-size: 14px; }
+  .ws-foot span { display: block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 2px; }
+  .ws-foot .done { background: var(--done-bg); }
+  .ws-foot .check { background: var(--check-bg); }
+  @media (max-width: 820px) { .stats { grid-template-columns: 1fr; } .mission .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 720px) { .ws-cols, .ws-foot { grid-template-columns: 1fr; } }
+  @media (max-width: 620px) { summary.ws-head { padding-right: 18px; } .ws-toggle { position: static; display: inline-block; transform: none; margin-top: 8px; } }
+  @media (max-width: 480px) { .mission .grid { grid-template-columns: 1fr; } }
+  @page { size: A4; margin: 8mm 11mm; }
+  @media print {
+    body { background: #fff; font-size: 9px; line-height: 1.4; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    main { padding: 0; max-width: none; }
+    h1 { font-size: 18px; margin: 2px 0 5px; }
+    h2 { font-size: 12px; margin: 8px 0 4px; break-after: avoid; }
+    h3 { font-size: 10.5px; margin: 0 0 3px; }
+    p { margin: 0 0 4px; }
+    li { margin-bottom: 1px; }
+    ul { padding-left: 13px; }
+    .eyebrow { font-size: 9px; }
+    .lede { font-size: 10.5px; max-width: none; }
+    .byline, .legend, footer { font-size: 8.5px; }
+    .byline { margin-top: 4px; } .legend { margin-bottom: 5px; }
+    .card { padding: 6px 9px; border-radius: 6px; break-inside: avoid; }
+    .grid { gap: 6px; grid-template-columns: repeat(3, 1fr); }
+    .grid[style] { margin-top: 7px !important; }
+    .card[style] { margin-top: 6px !important; }
+    .fact .k, .label, th, .month .label { font-size: 7.5px; margin-bottom: 1px; }
+    .fact .v { font-size: 10px; margin: 1px 0; }
+    .tag { font-size: 7.5px; padding: 0 5px; }
+    .month { grid-template-columns: 1fr; gap: 2px; margin-bottom: 7px; break-inside: avoid; }
+    .month .num { font-size: 8px; padding-top: 0; }
+    .month .cols { grid-template-columns: 1fr 1.15fr 0.85fr; gap: 9px; margin-top: 4px; }
+    .proof, .validate { font-size: 9px; margin-top: 4px; }
+    .validate { padding: 4px 8px; border-radius: 5px; }
+    table { font-size: 9px; } th, td { padding: 4px 6px; }
+    footer { margin-top: 10px; padding-top: 6px; }
+    /* composants communs */
+    header.band { padding: 12px 14px 10px; }
+    .cta { font-size: 9px; padding: 4px 10px; margin: 6px 6px 0 0; border-width: 1px; }
+    .cta-block { padding: 8px; }
+    .note { padding: 5px 9px; margin-top: 6px; }
+    .stats { gap: 6px; }
+    .stat { padding: 5px 7px; border-top-width: 2px; }
+    .stat .n { font-size: 15px; } .stat .w { font-size: 8px; margin: 1px 0; } .stat .c { font-size: 7.5px; }
+    .mission { padding: 6px 9px; margin-top: 6px; }
+    .mission .label { font-size: 7.5px; } .mission .card { padding: 5px 7px; } .mission .card p { font-size: 8.5px; }
+    .mission .after { margin-top: 4px; }
+    .ws-toggle { display: none; } summary.ws-head { padding-right: 9px; }
+    .ws { margin-bottom: 6px; }
+    .ws-head { padding: 5px 9px; } .ws-head .ws-num { font-size: 7.5px; } .ws-head h3 { margin: 0 0 1px; }
+    .ws-cols { gap: 9px; padding: 5px 9px; } .ws-cols .label, .ws-foot span { font-size: 7.5px; margin-bottom: 1px; } .ws-cols p { margin: 0 0 3px; }
+    .ws-foot > div { padding: 4px 9px; font-size: 9px; }
+    .sources { display: none; }
+  }
+</style>
+<meta name="robots" content="noindex, nofollow">
+<script>if(location.hostname.endsWith('github.io')){var s=document.createElement('script');s.async=true;s.dataset.goatcounter='https://thomasbousseau.goatcounter.com/count';s.src='https://gc.zgo.at/count.js';document.head.appendChild(s);}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --ink: #1d1a16; --muted: #736c64; --line: #ebeae6; --bg: #faf9f6; --card: #ffffff;
+          --accent: #022f36; --accent-soft: #dfccee; --hyp: #1d1a16; --hyp-soft: #f4ff5c;
+          --head-bg: #1d1a16; --head-fg: #ffffff; --head-accent: #19ffbe; --btn-bg: #19ffbe; --btn-fg: #1d1a16;
+          --radius: 16px; --done-bg: #d5fff2; --check-bg: #fbffc4; }
+  body { font-family: Inter, "Segoe UI", system-ui, sans-serif; }
+  h1, h2, h3, .stat .n { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; letter-spacing: 0; }
+  h1 { font-size: 44px; line-height: 1.08; } h2 { font-size: 30px; margin-top: 40px; } h3 { font-size: 22px; }
+  .stat .n { font-size: 44px; }
+  .cta { border-radius: 75px; font-weight: 500; }
+  .tag { background: #d5fff2; color: var(--accent); }
+  .tag.hyp { background: #f4ff5c; color: var(--ink); }
+  .card.tint { color: var(--ink); }
+  .grid .card.tint:nth-child(1) { background: #19ffbe; }
+  .grid .card.tint:nth-child(2) { background: #dfccee; }
+  .grid .card.tint:nth-child(3) { background: #f4ff5c; }
+  .card.tint .k { color: var(--ink); }
+  .card.tint .v { font-family: "Instrument Serif", Georgia, serif; font-size: 24px; font-weight: 400; line-height: 1.15; }
+  .stat { border-top-color: var(--ink); }
+  th { color: var(--accent); }
+  @media print {
+    h1 { font-size: 22px; } h2 { font-size: 15px; margin-top: 9px; } h3 { font-size: 12px; }
+    .stat .n { font-size: 17px; } .card.tint .v { font-size: 12px; }
+    .card, .stat, .mission, .ws, header.band { border-radius: 8px; }
+  }
+</style>
+</head>
+
+<body>
+<main>
+<header class="band">
+<div class="eyebrow">Combo · AI Revenue Operations Manager</div>
+<h1>Mes 5 premiers mois : un Revenue Engine <em>fiable, efficace et scalable</em></h1>
+<p class="lede">Je construis des automatisations et des agents IA que les équipes utilisent vraiment, et j'ai dirigé les équipes qu'ils servent : commerciales, Customer Success, opérations. Voici comment je m'y prendrais chez Combo.</p>
+<p class="byline">Thomas Bousseau · thomas.bousseau@gmail.com · <a href="https://www.linkedin.com/in/thomasbousseau/">LinkedIn</a> · Octobre 2026</p>
+<a class="cta" href="https://calendar.app.google/NYQLfD6jTTK2rtkw7" target="_blank" rel="noopener" data-goatcounter-click="book-meeting-combo-haut" data-goatcounter-title="Combo : rendez-vous (haut)">Réserver un créneau dans mon agenda</a><a class="cta ghost" href="CV_Thomas_Bousseau.pdf" target="_blank" rel="noopener" data-goatcounter-click="cv-combo-haut" data-goatcounter-title="Combo : CV (haut)">Voir mon CV</a>
+</header>
+
+<p class="note"><strong>Avant de lire.</strong> J'ai construit cette analyse avec les informations dont je dispose, c'est-à-dire des informations publiques. Elle est donc incomplète, et sans doute fausse par endroits. Je serais ravi d'en savoir plus pour rendre ce plan plus précis.</p>
+
+<h2>Ce que j'ai déjà réalisé</h2>
+<div class="stats">
+<div class="stat"><div class="n">80 %</div><div class="w">du temps de recommandation commerciale optimisé par l'IA</div><div class="c">Groupe Figaro, BU Emploi</div></div><div class="stat"><div class="n">−3 ETP</div><div class="w">à volume constant, par l'automatisation des workflows</div><div class="c">Golden Bees (Groupe Figaro)</div></div><div class="stat"><div class="n">30</div><div class="w">partenaires intégrés par API à notre écosystème</div><div class="c">Golden Bees, partenariats ATS</div></div>
+</div>
+
+<div class="mission">
+<div class="label">Aujourd'hui, en mission de conseil · depuis septembre 2026</div>
+<h3>Automatisation et agents IA pour un cabinet d'audit et d'expertise comptable</h3>
+<p>De l'idée à la solution utilisée, en direct avec les associés. Ce que la mission produit :</p>
+<div class="grid">
+<div class="card"><div class="k2">Gouvernance de l'IA</div><p>Matrice des accès : qui accède à quoi, agents compris. Connecteurs, droits, données réservées.</p></div>
+<div class="card"><div class="k2">Priorisation</div><p>Chaque processus évalué selon son impact, sa faisabilité et la sensibilité de ses données.</p></div>
+<div class="card"><div class="k2">Agents en production</div><p>Agents Claude et scénarios n8n reliés aux outils du quotidien, avec validation humaine.</p></div>
+<div class="card"><div class="k2">Adoption</div><p>Tableau de bord, formation des équipes et transfert complet pour les rendre autonomes.</p></div>
+</div>
+</div>
+
+<h2>Ma lecture de Combo</h2>
+<p class="legend"><span class="tag">public</span> information publiée ·
+<span class="tag hyp">mon hypothèse</span> estimation de ma part, à confirmer avec vous.</p>
+<div class="grid">
+<div class="card fact"><div class="k">IA et automatisation</div><div class="v">Dust et Make sont déjà dans les mains de plusieurs équipes</div><span class="tag">public</span></div><div class="card fact"><div class="k">Stack</div><div class="v">Salesforce, Planhat, Intercom, Make, Dust, Metabase</div><span class="tag">public</span></div><div class="card fact"><div class="k">Moment</div><div class="v">Nouveaux produits autour de la paie, internationalisation, équipes Revenue en croissance</div><span class="tag">public</span></div><div class="card fact"><div class="k">Pourquoi ce poste</div><div class="v">Des automatisations nées équipe par équipe, sans propriétaire ni supervision</div><span class="tag hyp">mon hypothèse</span></div><div class="card fact"><div class="k">Ce qui change</div><div class="v">La paie allonge le cycle de vente et ajoute des données à faire circuler</div><span class="tag hyp">mon hypothèse</span></div><div class="card fact"><div class="k">Ce poste</div><div class="v">La brique IA et automatisation d'une équipe RevOps déjà en place</div><span class="tag hyp">mon hypothèse</span></div>
+</div>
+
+<h2>Le plan en trois chantiers</h2>
+<div class="grid">
+<div class="card fact tint"><div class="k">Chantier 1</div><div class="v">Fiabiliser et gouverner l'existant</div><p>Make et Dust : inventaire, propriétaires, supervision.</p></div>
+<div class="card fact tint"><div class="k">Chantier 2</div><div class="v">Livrer les cas d'usage qui comptent</div><p>De la priorisation à l'adoption, mesurée.</p></div>
+<div class="card fact tint"><div class="k">Chantier 3</div><div class="v">Des données et des indicateurs fiables</div><p>Funnel, pipeline, ARR, churn : une seule vérité.</p></div>
+</div>
+<div class="card" style="margin-top:12px">
+<div class="label">Au mois 5, vous aurez</div>
+<ul>
+<li>Un inventaire à jour des scénarios Make et des agents Dust, chacun avec un propriétaire.</li>
+<li>Des standards écrits : documentation, tests, gestion des erreurs, maintenance.</li>
+<li>Des cas d'usage prioritaires livrés, utilisés, avec leur impact mesuré.</li>
+<li>Des tableaux de bord Revenue fiabilisés et une feuille de route à 12 mois.</li>
+</ul>
+<p style="color:var(--muted)">Pourquoi 5 mois plutôt que 100 jours : c'est le temps qu'il faut pour livrer, faire adopter et mesurer, avec un bilan avant la fin de la période d'essai.</p>
+</div>
+
+<h2>Les chantiers en détail</h2>
+<p class="legend">Cliquez sur un chantier pour l'ouvrir.</p>
+<details class="ws">
+<summary class="ws-head" data-goatcounter-click="detail-combo-1" data-goatcounter-title="Combo : chantier 1"><span class="ws-num">Chantier 1</span><h3>Fiabiliser et gouverner l'existant</h3><p>Avant de construire du neuf, savoir ce qui tourne, qui en répond et ce qui casse.</p><span class="ws-toggle" data-closed="Voir le détail ▾" data-open="Replier ▴"></span></summary>
+<div class="ws-cols">
+<div><div class="label">Ce que je regarderai</div><ul><li>Les scénarios Make et les agents Dust en production.</li><li>Leurs propriétaires, leurs accès et leurs connexions.</li><li>Ce qui tombe en panne, et comment on s'en aperçoit.</li></ul></div>
+<div><div class="label">Ce que je ferai</div><ul><li>Un inventaire, avec un propriétaire par scénario et par agent.</li><li>Des comptes de service et une supervision des erreurs.</li><li>Des standards simples : documentation, tests, cycle de vie.</li></ul></div>
+<div><div class="label">Ce que vous aurez</div><p>Un registre des automatisations et des agents, et leurs règles de gouvernance.</p><div class="label">Indicateur</div><p>Part des scénarios et des agents avec propriétaire, documentation et supervision.</p></div>
+</div>
+<div class="ws-foot">
+<div class="done"><span>Déjà fait</span>Matrice des accès de l'IA et règles d'usage pour un cabinet d'audit, en mission. 30 partenaires intégrés par API chez Golden Bees.</div>
+<div class="check"><span>À valider avec vous</span>Le nombre de scénarios et d'agents en production, et qui les maintient aujourd'hui.</div>
+</div>
+</details>
+<details class="ws">
+<summary class="ws-head" data-goatcounter-click="detail-combo-2" data-goatcounter-title="Combo : chantier 2"><span class="ws-num">Chantier 2</span><h3>Livrer les cas d'usage qui comptent</h3><p>Pas d'IA pour faire de l'IA : des solutions robustes, utilisées, dont on mesure l'effet.</p><span class="ws-toggle" data-closed="Voir le détail ▾" data-open="Replier ▴"></span></summary>
+<div class="ws-cols">
+<div><div class="label">Ce que je regarderai</div><ul><li>Les irritants de Sales, Marketing et Customer Success.</li><li>Le backlog Ops existant et ses critères de priorité.</li><li>Les solutions déjà livrées mais peu utilisées.</li></ul></div>
+<div><div class="label">Ce que je ferai</div><ul><li>Prioriser selon l'impact, la complexité et le risque.</li><li>Construire moi-même, de bout en bout, sans usine à gaz.</li><li>Former les équipes et mesurer l'adoption.</li></ul></div>
+<div><div class="label">Ce que vous aurez</div><p>Des automatisations et des agents en service, adoptés par les équipes.</p><div class="label">Indicateur</div><p>Utilisateurs actifs et temps gagné par solution livrée.</p></div>
+</div>
+<div class="ws-foot">
+<div class="done"><span>Déjà fait</span>Agents IA déployés sur le support et 80 % du temps de recommandation commerciale optimisé au Groupe Figaro. 3 ETP économisés par l'automatisation chez Golden Bees.</div>
+<div class="check"><span>À valider avec vous</span>Les trois irritants que vous voudriez voir traités en premier.</div>
+</div>
+</details>
+<details class="ws">
+<summary class="ws-head" data-goatcounter-click="detail-combo-3" data-goatcounter-title="Combo : chantier 3"><span class="ws-num">Chantier 3</span><h3>Des données et des indicateurs fiables</h3><p>Un indicateur que deux équipes calculent différemment ne sert à personne.</p><span class="ws-toggle" data-closed="Voir le détail ▾" data-open="Replier ▴"></span></summary>
+<div class="ws-cols">
+<div><div class="label">Ce que je regarderai</div><ul><li>La circulation des données entre Salesforce, Planhat et Intercom.</li><li>Les définitions des indicateurs : funnel, pipeline, ARR, churn.</li><li>Les tableaux de bord réellement consultés.</li></ul></div>
+<div><div class="label">Ce que je ferai</div><ul><li>Documenter flux, règles de gestion et propriétaires, avec l'équipe Data.</li><li>Fiabiliser les tableaux de bord clés.</li><li>Contribuer à la prévision et en tirer des recommandations.</li></ul></div>
+<div><div class="label">Ce que vous aurez</div><p>Des tableaux de bord fiables et une documentation des données Revenue.</p><div class="label">Indicateur</div><p>Écart entre la prévision et le réalisé.</p></div>
+</div>
+<div class="ws-foot">
+<div class="done"><span>Déjà fait</span>Cadre de KPI pour piloter une activité de 16 M€ de CA. Churn de 60 % à 49 % en 12 mois, grâce à la qualité de service et à la data-visualisation client.</div>
+<div class="check"><span>À valider avec vous</span>Le partage des rôles avec l'équipe RevOps en place et l'équipe Data.</div>
+</div>
+</details>
+
+<h2>Calendrier</h2>
+<div class="card table-wrap"><table>
+<thead><tr><th>Chantier</th><th>Comprendre<br>semaines 1 à 6</th><th>Premiers résultats<br>mois 2 et 3</th><th>Structurer et pérenniser<br>mois 4 et 5</th></tr></thead>
+<tbody>
+<tr><td><strong>1. Gouvernance</strong></td><td>Inventorier Make et Dust. Rencontrer chaque équipe utilisatrice.</td><td>Propriétaires nommés. Supervision des erreurs en place.</td><td>Standards appliqués à tout nouveau scénario ou agent.</td></tr>
+<tr><td><strong>2. Cas d'usage</strong></td><td>Recueillir les irritants. Prioriser avec le VP Growth.</td><td>Deux premiers cas d'usage livrés et utilisés.</td><td>Rythme de livraison régulier. Impact mesuré. Équipes formées.</td></tr>
+<tr><td><strong>3. Données et pilotage</strong></td><td>Cartographier les flux de données et les indicateurs.</td><td>Définitions partagées. Premiers tableaux de bord fiabilisés.</td><td>Contribution à la prévision. Bilan et feuille de route à 12 mois.</td></tr>
+</tbody></table></div>
+
+<div class="grid" style="margin-top:12px">
+<div class="card"><h3>Ce que je ne ferai pas</h3><ul>
+<li>De l'IA pour faire de l'IA.</li>
+<li>Une usine à gaz que personne ne sait maintenir.</li>
+<li>Trois semaines de présentation avant de livrer quelque chose qui fonctionne.</li>
+</ul></div>
+<div class="card"><h3>Ce dont j'aurai besoin</h3><ul>
+<li>Un accès à Make, Dust, Salesforce et Planhat dès la première semaine.</li>
+<li>Un binôme côté Data.</li>
+<li>Un point hebdomadaire avec le VP Growth.</li>
+</ul></div>
+<div class="card"><h3>Ma position, en toute franchise</h3>
+<p>Je n'ai pas occupé de poste RevOps en titre, et je n'ai pas encore administré Salesforce, Planhat ni Dust : mes agents tournent aujourd'hui avec Claude et n8n. Ce que j'apporte : j'ai été commercial puis directeur Customer Success. Je connais les irritants de ces équipes de l'intérieur.</p></div>
+</div>
+
+<h2>Couverture des missions du poste</h2>
+<div class="card table-wrap"><table>
+<thead><tr><th>Mission de l'offre</th><th>Où</th><th>Ce que vous aurez en main</th></tr></thead>
+<tbody>
+<tr><td><strong>AI &amp; Automation</strong> : automatisations et agents en production, priorisation, gouvernance de Dust et de Make, mesure de l'adoption, montée en compétence</td><td>Chantiers 1 et 2 · toutes phases</td><td>Registre, standards, cas d'usage livrés</td></tr>
+<tr><td><strong>Outils &amp; Data</strong> : évolution de la stack RevOps, données alimentées et synchronisées, documentation</td><td>Chantier 3 · toutes phases</td><td>Flux documentés, données exploitables</td></tr>
+<tr><td><strong>Pilotage &amp; Reporting</strong> : tableaux de bord, indicateurs fiabilisés, prévision, mesure d'impact</td><td>Chantier 3 · mois 2 à 5</td><td>Tableaux de bord fiables, contribution à la prévision</td></tr>
+<tr><td><strong>Process &amp; Governance</strong> : process RevOps, backlog Ops, standards, ownership</td><td>Chantiers 1 et 2 · toutes phases</td><td>Backlog priorisé, propriétaires nommés</td></tr>
+</tbody></table></div>
+
+<h2>Ce que je ne sais pas encore</h2>
+<div class="card">
+<p>Ce plan est une base de discussion. Ces réponses le feraient évoluer :</p>
+<ul>
+<li>Combien de scénarios Make et d'agents Dust tournent aujourd'hui, et qui les maintient ?</li>
+<li>Comment le travail se partage-t-il avec l'équipe RevOps en place ?</li>
+<li>Quelle priorité pour les six prochains mois : la paie, l'international, l'outbound ?</li>
+<li>Quelles données est-il permis de connecter à Dust ?</li>
+</ul>
+</div>
+
+<div class="card cta-block" style="margin-top:24px">
+<h3>Confrontons ce plan à votre réalité</h3>
+<p>Vingt minutes suffisent pour me dire où je vois juste et où je me trompe.</p>
+<a class="cta" href="https://calendar.app.google/NYQLfD6jTTK2rtkw7" target="_blank" rel="noopener" data-goatcounter-click="book-meeting-combo-bas" data-goatcounter-title="Combo : rendez-vous (bas)">Réserver un créneau dans mon agenda</a><a class="cta ghost" href="CV_Thomas_Bousseau.pdf" target="_blank" rel="noopener" data-goatcounter-click="cv-combo-bas" data-goatcounter-title="Combo : CV (bas)">Voir mon CV</a>
+</div>
+
+<footer>
+<p>Thomas Bousseau · thomas.bousseau@gmail.com</p>
+<p class="sources">Sources publiques consultées le 2 octobre 2026 : <a href="https://combovf-1736844375.teamtailor.com/jobs/7755217-ai-revenue-operations-manager-paris-f-h-n">offre Combo</a> · <a href="https://combohr.com/fr/">combohr.com</a> · page LinkedIn de Combo</p>
+</footer>
+</main>
+<script>window.addEventListener('beforeprint',function(){document.querySelectorAll('details').forEach(function(d){d.open=true;});});</script>
+</body>
+</html>
