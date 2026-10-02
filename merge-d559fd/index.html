@@ -131,6 +131,13 @@
   .ws-head .ws-num { color: #3fd0ca; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
   .ws-head h3 { color: #fff; margin: 2px 0 4px; }
   .ws-head p { margin: 0; color: rgba(255, 255, 255, 0.8); }
+  summary.ws-head { display: block; cursor: pointer; list-style: none; position: relative; padding-right: 170px; }
+  summary.ws-head::-webkit-details-marker { display: none; }
+  .ws-toggle { position: absolute; right: 18px; top: 50%; transform: translateY(-50%); font-size: 13px; font-weight: 600; border: 1px solid rgba(255, 255, 255, 0.45); border-radius: 99px; padding: 5px 12px; color: #fff; white-space: nowrap; }
+  .ws-toggle::before { content: "See details ▾"; }
+  details[open] .ws-toggle::before { content: "Close ▴"; }
+  summary.ws-head:hover .ws-toggle { background: rgba(255, 255, 255, 0.12); }
+  @media (max-width: 620px) { summary.ws-head { padding-right: 18px; } .ws-toggle { position: static; display: inline-block; transform: none; margin-top: 8px; } }
   .ws-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; padding: 14px 18px; }
   .ws-cols .label { font-size: 12px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
   .ws-cols p { margin: 0 0 8px; }
@@ -155,6 +162,7 @@
     .mission { padding: 6px 9px; margin-top: 6px; }
     .mission .label { font-size: 7.5px; } .mission .card { padding: 5px 7px; border-radius: 6px; } .mission .card p { font-size: 8.5px; }
     .mission .after { margin-top: 4px; }
+    .ws-toggle { display: none; } summary.ws-head { padding-right: 9px; }
     .ws { margin-bottom: 6px; }
     .ws-head { padding: 5px 9px; } .ws-head .ws-num { font-size: 7.5px; } .ws-head h3 { margin: 0 0 1px; }
     .ws-cols { gap: 9px; padding: 5px 9px; } .ws-cols .label, .ws-foot span { font-size: 7.5px; margin-bottom: 1px; } .ws-cols p { margin: 0 0 3px; }
@@ -218,8 +226,9 @@
 </div>
 
 <h2>The workstreams in detail</h2>
-<section class="ws">
-<div class="ws-head"><span class="ws-num">Workstream 1</span><h3>A Paris entity that runs</h3><p>Several new people join a small office at the same time. Without simple basics, every hire and every invoice takes leadership time.</p></div>
+<p class="legend">Click a workstream to open it.</p>
+<details class="ws">
+<summary class="ws-head" data-goatcounter-click="detail-merge-1" data-goatcounter-title="merge: detail 1"><span class="ws-num">Workstream 1</span><h3>A Paris entity that runs</h3><p>Several new people join a small office at the same time. Without simple basics, every hire and every invoice takes leadership time.</p><span class="ws-toggle"></span></summary>
 <div class="ws-cols">
 <div><div class="label">What I will look at</div><ul><li>How hiring, contracts and payroll work today.</li><li>How budget, cash and vendor payments are tracked.</li><li>Which daily tasks reach the leadership team.</li></ul></div>
 <div><div class="label">What I will do</div><ul><li>One onboarding path for every new hire.</li><li>A monthly rhythm: budget, cash, vendor payments.</li><li>Short written policies, and automation of repeated steps.</li></ul></div>
@@ -229,9 +238,9 @@
 <div class="done"><span>Done before</span>Cash, vendor payments, budget and HR for more than 30 employees at Voila Vinos, the company I co-founded. 3 full-time positions saved through automation at Golden Bees.</div>
 <div class="check"><span>To check with you</span>What is already handled from London or by external providers.</div>
 </div>
-</section>
-<section class="ws">
-<div class="ws-head"><span class="ws-num">Workstream 2</span><h3>Fast customer onboarding, with full controls</h3><p>Between a signed contract and a first payment there are checks, documents and handovers. This is where speed and compliance meet.</p></div>
+</details>
+<details class="ws">
+<summary class="ws-head" data-goatcounter-click="detail-merge-2" data-goatcounter-title="merge: detail 2"><span class="ws-num">Workstream 2</span><h3>Fast customer onboarding, with full controls</h3><p>Between a signed contract and a first payment there are checks, documents and handovers. This is where speed and compliance meet.</p><span class="ws-toggle"></span></summary>
 <div class="ws-cols">
 <div><div class="label">What I will look at</div><ul><li>Each step from signed contract to first payment, with its time.</li><li>Where files wait: missing documents, handovers.</li><li>The main reasons for escalations.</li></ul></div>
 <div><div class="label">What I will do</div><ul><li>A document checklist for each client type.</li><li>One owner and one visible status per onboarding.</li><li>An escalation path with response times.</li></ul></div>
@@ -241,9 +250,9 @@
 <div class="done"><span>Done before</span>Care team restructured and AI agents deployed on support at Groupe Figaro. Churn from 60% to 49% in 12 months at Golden Bees.</div>
 <div class="check"><span>To check with you</span>The current onboarding time and volumes, and which steps Compliance must fully own.</div>
 </div>
-</section>
-<section class="ws">
-<div class="ws-head"><span class="ws-num">Workstream 3</span><h3>A regulatory calendar where nothing slips</h3><p>The risk is not the rule itself. It is a date without a clear owner.</p></div>
+</details>
+<details class="ws">
+<summary class="ws-head" data-goatcounter-click="detail-merge-3" data-goatcounter-title="merge: detail 3"><span class="ws-num">Workstream 3</span><h3>A regulatory calendar where nothing slips</h3><p>The risk is not the rule itself. It is a date without a clear owner.</p><span class="ws-toggle"></span></summary>
 <div class="ws-cols">
 <div><div class="label">What I will look at</div><ul><li>The full list of filings, reports and audits.</li><li>How deadlines are tracked today.</li><li>Who does what between Regulatory Operations, Compliance, Legal and this role.</li></ul></div>
 <div><div class="label">What I will do</div><ul><li>One shared calendar, with an owner and a backup per deadline.</li><li>A responsibility matrix agreed with the MLRO.</li><li>An audit-ready folder, filled as the work is done.</li></ul></div>
@@ -253,7 +262,7 @@
 <div class="done"><span>Done before</span>My current consulting mission, in a regulated environment: access matrix, process mapping, and human validation kept wherever professional judgment is needed.</div>
 <div class="check"><span>To check with you</span>How this role and the Regulatory Operations Lead share the work.</div>
 </div>
-</section>
+</details>
 
 <h2>Timeline</h2>
 <div class="card table-wrap"><table>
@@ -311,5 +320,6 @@
 <p class="sources">Public sources, read on 1 October 2026: <a href="https://jobs.ashbyhq.com/mergemoney">Merge job board</a> · <a href="https://www.merge.money/">merge.money</a> · <a href="https://thefintechtimes.com/french-regulators-approve-merge-for-fiat-and-stablecoin-payment-services/">The Fintech Times</a> · <a href="https://www.linkedin.com/company/mergemoney/">Merge on LinkedIn</a></p>
 </footer>
 </main>
+<script>window.addEventListener('beforeprint',function(){document.querySelectorAll('details').forEach(function(d){d.open=true;});});</script>
 </body>
 </html>

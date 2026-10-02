@@ -136,6 +136,13 @@
   .ws-head .ws-num { color: var(--coral); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
   .ws-head h3 { color: #fff; margin: 2px 0 4px; }
   .ws-head p { margin: 0; color: #d9d9d0; }
+  summary.ws-head { display: block; cursor: pointer; list-style: none; position: relative; padding-right: 170px; }
+  summary.ws-head::-webkit-details-marker { display: none; }
+  .ws-toggle { position: absolute; right: 18px; top: 50%; transform: translateY(-50%); font-size: 13px; font-weight: 600; border: 1px solid rgba(255, 255, 255, 0.45); border-radius: 99px; padding: 5px 12px; color: #fff; white-space: nowrap; }
+  .ws-toggle::before { content: "Voir le détail ▾"; }
+  details[open] .ws-toggle::before { content: "Replier ▴"; }
+  summary.ws-head:hover .ws-toggle { background: rgba(255, 255, 255, 0.12); }
+  @media (max-width: 620px) { summary.ws-head { padding-right: 18px; } .ws-toggle { position: static; display: inline-block; transform: none; margin-top: 8px; } }
   .ws-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; padding: 14px 18px; }
   .ws-cols .label { font-size: 12px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
   .ws-cols p { margin: 0 0 8px; }
@@ -162,6 +169,7 @@
     .stat { padding: 5px 7px; border-top-width: 2px; }
     .stat .n { font-size: 15px; } .stat .w { font-size: 8px; margin: 1px 0; } .stat .c { font-size: 7.5px; }
     .proof { padding: 4px 8px; font-size: 9px; }
+    .ws-toggle { display: none; } summary.ws-head { padding-right: 9px; }
     .ws { margin-bottom: 6px; border-radius: 0 0 8px 0; }
     .ws-head { padding: 5px 9px; } .ws-head .ws-num { font-size: 7.5px; } .ws-head h3 { margin: 0 0 1px; }
     .ws-cols { gap: 9px; padding: 5px 9px; } .ws-cols .label, .ws-foot span { font-size: 7.5px; margin-bottom: 1px; } .ws-cols p { margin: 0 0 3px; }
@@ -225,8 +233,9 @@
 </div>
 
 <h2>Les chantiers en détail</h2>
-<section class="ws">
-<div class="ws-head"><span class="ws-num">Chantier 1</span><h3>Des feuilles de route IA qui produisent des résultats</h3><p>Le risque n'est plus l'absence de feuille de route, mais celle qui reste sur le papier.</p></div>
+<p class="legend">Cliquez sur un chantier pour l'ouvrir.</p>
+<details class="ws">
+<summary class="ws-head" data-goatcounter-click="detail-siparex-1" data-goatcounter-title="siparex: detail 1"><span class="ws-num">Chantier 1</span><h3>Des feuilles de route IA qui produisent des résultats</h3><p>Le risque n'est plus l'absence de feuille de route, mais celle qui reste sur le papier.</p><span class="ws-toggle"></span></summary>
 <div class="ws-cols">
 <div><div class="label">Ce que je regarderai</div><ul><li>Les feuilles de route IA en cours : en production ou bloquées.</li><li>La mesure d'impact remontée aux équipes d'investissement.</li><li>Deux ou trois missions en binôme, pour apprendre vos standards.</li></ul></div>
 <div><div class="label">Ce que je ferai</div><ul><li>Mener des missions : diagnostic, feuille de route centrée sur 2 à 3 cas d'usage.</li><li>Tenir des business reviews avec chaque dirigeant.</li><li>Contribuer aux due diligences digitales.</li></ul></div>
@@ -236,9 +245,9 @@
 <div class="done"><span>Déjà fait</span>Diagnostic, feuille de route et agents IA pour un cabinet d'audit, en mission. Agents IA et 80 % de temps gagné sur la recommandation commerciale au Groupe Figaro.</div>
 <div class="check"><span>À valider avec vous</span>Les participations et les secteurs prioritaires des six prochains mois.</div>
 </div>
-</section>
-<section class="ws">
-<div class="ws-head"><span class="ws-num">Chantier 2</span><h3>Une Operating Team industrialisée et agentifiée</h3><p>Réduire la dépendance à l'expertise individuelle : un travail de produit autant que de conseil.</p></div>
+</details>
+<details class="ws">
+<summary class="ws-head" data-goatcounter-click="detail-siparex-2" data-goatcounter-title="siparex: detail 2"><span class="ws-num">Chantier 2</span><h3>Une Operating Team industrialisée et agentifiée</h3><p>Réduire la dépendance à l'expertise individuelle : un travail de produit autant que de conseil.</p><span class="ws-toggle"></span></summary>
 <div class="ws-cols">
 <div><div class="label">Ce que je regarderai</div><ul><li>Les livrables types et le temps passé sur chacun.</li><li>Les tâches répétées d'une mission à l'autre.</li><li>Les outils IA en place et vos règles de confidentialité.</li></ul></div>
 <div><div class="label">Ce que je ferai</div><ul><li>Un kit de mission : modèles de diagnostic, de feuille de route, de reporting.</li><li>De premiers agents sur les tâches à faible risque.</li><li>Une relecture humaine systématique des livrables.</li></ul></div>
@@ -248,9 +257,9 @@
 <div class="done"><span>Déjà fait</span>Backend unifiant Brief → Trading → Reporting et 3 ETP économisés chez Golden Bees. Pratique quotidienne de Claude et n8n.</div>
 <div class="check"><span>À valider avec vous</span>Les outils IA en place et les données qu'il est permis d'y traiter.</div>
 </div>
-</section>
-<section class="ws">
-<div class="ws-head"><span class="ws-num">Chantier 3</span><h3>Un écosystème vivant et visible</h3><p>Clubs, partenaires et outils sur étagère distinguent votre Operating Team : ils doivent rester à jour et se faire connaître.</p></div>
+</details>
+<details class="ws">
+<summary class="ws-head" data-goatcounter-click="detail-siparex-3" data-goatcounter-title="siparex: detail 3"><span class="ws-num">Chantier 3</span><h3>Un écosystème vivant et visible</h3><p>Clubs, partenaires et outils sur étagère distinguent votre Operating Team : ils doivent rester à jour et se faire connaître.</p><span class="ws-toggle"></span></summary>
 <div class="ws-cols">
 <div><div class="label">Ce que je regarderai</div><ul><li>Les clubs : calendrier, retours, NPS actuel.</li><li>La base de partenaires : couverture et fraîcheur.</li><li>L'usage réel des outils sur étagère.</li></ul></div>
 <div><div class="label">Ce que je ferai</div><ul><li>Qualifier de nouveaux partenaires là où la base est mince.</li><li>Co-animer les clubs autour de cas concrets.</li><li>Fournir des résultats chiffrés au reporting et à la communication.</li></ul></div>
@@ -260,7 +269,7 @@
 <div class="done"><span>Déjà fait</span>13 partenariats jobboards et 30 partenaires ATS intégrés chez Golden Bees. Go-to-market complet de Lila.</div>
 <div class="check"><span>À valider avec vous</span>La part du temps attendue sur l'animation et la communication.</div>
 </div>
-</section>
+</details>
 
 <h2>Calendrier</h2>
 <div class="card table-wrap"><table>
@@ -318,5 +327,6 @@
 <p class="sources">Sources publiques consultées le 1er octobre 2026 : <a href="https://www.siparex.com/plateforme/operating-team/">Siparex, Operating Team</a> · <a href="https://www.daf-mag.fr/fonction-finance-1242/gouvernance-strategie-2125/capital-investissement-le-fonds-siparex-a-contre-courant-du-marche-en-2025-24311">DAF Mag, janvier 2026</a> · <a href="https://presse.bpifrance.fr/siparex-et-bpifrance-publient-un-ouvrage-exclusif-sur-limpact-chiffre-de-lintelligence-artificielle-dans-les-pme-eti-francaises/?lang=fra">Bpifrance, avril 2026</a> · offre publiée sur Welcome to the Jungle</p>
 </footer>
 </main>
+<script>window.addEventListener('beforeprint',function(){document.querySelectorAll('details').forEach(function(d){d.open=true;});});</script>
 </body>
 </html>
