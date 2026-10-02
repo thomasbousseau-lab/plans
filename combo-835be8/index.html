@@ -83,6 +83,10 @@
   .stat .n { font-size: 34px; line-height: 1.1; color: var(--ink); font-weight: 600; }
   .stat .w { font-weight: 600; margin: 4px 0 2px; }
   .stat .c { color: var(--muted); font-size: 13px; }
+  .stats.four { grid-template-columns: repeat(4, 1fr); }
+  .stats.four .stat .n { font-size: 30px; }
+  @media (max-width: 980px) { .stats.four { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .stats.four { grid-template-columns: 1fr; } }
   .stat .delta { display: inline-block; vertical-align: middle; margin-left: 8px; padding: 2px 10px; border-radius: 99px; background: var(--btn-bg); color: var(--btn-fg); font: 700 15px/1.4 system-ui, sans-serif; letter-spacing: 0; }
   .stat .flow { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; margin-top: 8px; font-size: 12.5px; color: var(--ink); }
   .stat .flow span { background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 2px 7px; white-space: nowrap; }
@@ -153,6 +157,7 @@
     .stats { gap: 6px; }
     .stat { padding: 5px 7px; border-top-width: 2px; }
     .stat .n { font-size: 15px; } .stat .w { font-size: 8px; margin: 1px 0; } .stat .c { font-size: 7.5px; }
+    .stats.four { grid-template-columns: repeat(4, 1fr); } .stats.four .stat .n { font-size: 14px; }
     .stat .delta { font-size: 8px; padding: 0 5px; margin-left: 4px; } .stat .flow { font-size: 7px; gap: 2px 3px; margin-top: 3px; } .stat .flow span { padding: 0 3px; border-radius: 3px; }
     .mission { padding: 6px 9px; margin-top: 6px; }
     .mission .label { font-size: 7.5px; } .mission .card { padding: 5px 7px; } .mission .card p { font-size: 8.5px; }
@@ -177,7 +182,7 @@
   body { font-family: Inter, "Segoe UI", system-ui, sans-serif; }
   h1, h2, h3, .stat .n { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; letter-spacing: 0; }
   h1 { font-size: 44px; line-height: 1.08; } h2 { font-size: 30px; margin-top: 40px; } h3 { font-size: 22px; }
-  .stat .n { font-size: 44px; }
+  .stat .n, .stats.four .stat .n { font-size: 38px; }
   .cta { border-radius: 75px; font-weight: 500; }
   .tag { background: #d5fff2; color: var(--accent); }
   .tag.hyp { background: #f4ff5c; color: var(--ink); }
@@ -210,8 +215,8 @@
 <p class="note"><strong>Avant de lire.</strong> J'ai construit cette analyse avec les informations dont je dispose, c'est-à-dire des informations publiques. Elle est donc incomplète, et sans doute fausse par endroits. Je serais ravi d'en savoir plus pour rendre ce plan plus précis.</p>
 
 <h2>Ce que j'ai déjà réalisé</h2>
-<div class="stats">
-<div class="stat"><div class="n">−3 ETP<span class="delta">−20 %</span></div><div class="w">d'effectif à volume constant, par l'automatisation des workflows</div><div class="c">Golden Bees (Groupe Figaro), équipe de 15 personnes</div></div><div class="stat"><div class="n">80 %</div><div class="w">du temps de recommandation commerciale gagné</div><div class="c">Scénario orchestré sur n8n :<div class="flow"><span>Google Meet</span><i>→</i><span>brief client structuré</span><i>→</i><span>agent IA</span><i>→</i><span>Gamma</span></div></div></div><div class="stat"><div class="n">1 SaaS</div><div class="w">IA-native conçu et lancé : 10 000 utilisateurs en septembre 2026</div><div class="c">Lila, avec 1 PO et 9 développeurs</div></div>
+<div class="stats four">
+<div class="stat"><div class="n">−3 ETP<span class="delta">−20 %</span></div><div class="w">d'effectif à volume constant, par l'automatisation des workflows</div><div class="c">Golden Bees (Groupe Figaro), équipe de 15 personnes</div></div><div class="stat"><div class="n">80 %</div><div class="w">du temps de recommandation commerciale gagné</div><div class="c">Scénario orchestré sur n8n :<div class="flow"><span>Google Meet</span><i>→</i><span>brief client structuré</span><i>→</i><span>agent IA</span><i>→</i><span>Gamma</span></div></div></div><div class="stat"><div class="n">1 SaaS</div><div class="w">IA-native conçu et lancé : 10 000 utilisateurs en septembre 2026</div><div class="c">Lila, avec 1 PO et 9 développeurs</div></div><div class="stat"><div class="n">1 entreprise</div><div class="w">cofondée et dirigée pendant 5 ans</div><div class="c">Voila Vinos, Colombie : import de vin, 2 restaurants, plus de 30 salariés</div></div>
 </div>
 
 <div class="mission">
