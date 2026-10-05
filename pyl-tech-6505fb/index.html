@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manager - AI Solutions & Transformation — Mes 100 premiers jours chez Pyl.Tech · Thomas Bousseau</title>
+<style>
+  :root {
+    --ink: #16202e;
+    --muted: #5b6676;
+    --line: #dfe4ea;
+    --bg: #f6f7f9;
+    --card: #ffffff;
+    --accent: #1f5fbf;
+    --accent-soft: #e8f0fc;
+    --hyp: #8a5a00;
+    --hyp-soft: #fdf3dc;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 15px/1.55 "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  }
+  main { max-width: 920px; margin: 0 auto; padding: 32px 16px 48px; }
+  h1 { font-size: 30px; line-height: 1.2; margin: 6px 0 10px; letter-spacing: -0.01em; }
+  h2 { font-size: 19px; margin: 36px 0 12px; }
+  h3 { font-size: 16px; margin: 0 0 6px; }
+  p { margin: 0 0 10px; }
+  ul { margin: 0; padding-left: 18px; }
+  li { margin-bottom: 4px; }
+  a { color: var(--accent); }
+  .eyebrow { color: var(--accent); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: .06em; }
+  .lede { font-size: 17px; color: var(--muted); max-width: 70ch; }
+  .byline { color: var(--muted); font-size: 13px; margin-top: 12px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; }
+  .grid { display: grid; gap: 12px; grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 820px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .grid { grid-template-columns: 1fr; } }
+  .fact .k { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .05em; }
+  .fact .v { font-size: 17px; font-weight: 600; margin: 2px 0; }
+  .tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 1px 7px; border-radius: 99px; background: var(--accent-soft); color: var(--accent); }
+  .tag.hyp { background: var(--hyp-soft); color: var(--hyp); }
+  .legend { color: var(--muted); font-size: 13px; margin-bottom: 12px; }
+  .label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
+  .month { display: grid; grid-template-columns: 92px 1fr; gap: 16px; margin-bottom: 12px; break-inside: avoid; }
+  .month .num { font-weight: 700; color: var(--accent); font-size: 13px; text-transform: uppercase; letter-spacing: .05em; padding-top: 2px; }
+  .month .cols { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-top: 10px; }
+  .month .label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
+  .validate { margin-top: 10px; padding: 8px 12px; border-radius: 8px; background: var(--hyp-soft); color: var(--hyp); font-size: 14px; }
+  .proof { margin-top: 8px; font-size: 14px; color: var(--muted); }
+  .note { border-left: 3px solid var(--accent); background: var(--card); border-radius: 8px; padding: 12px 16px; margin-top: 16px; color: var(--muted); }
+  .note strong { color: var(--ink); }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+  footer { margin-top: 36px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+  @media (max-width: 560px) {
+    h1 { font-size: 24px; }
+    .month { grid-template-columns: 1fr; gap: 4px; }
+  }
+  /* composants communs */
+  :root { --head-bg: var(--ink); --head-fg: #ffffff; --head-accent: var(--accent); --btn-bg: var(--accent); --btn-fg: #ffffff;
+          --radius: 10px; --done-bg: var(--accent-soft); --check-bg: var(--hyp-soft); }
+  header.band { background: var(--head-bg); color: var(--head-fg); border-radius: var(--radius); padding: 30px 30px 26px; }
+  header.band .eyebrow { color: var(--head-accent); }
+  header.band .lede { color: var(--head-fg); opacity: .85; }
+  header.band .byline, header.band .byline a { color: var(--head-fg); opacity: .7; }
+  h1 em { font-style: normal; color: var(--head-accent); }
+  .card, .validate { border-radius: var(--radius); }
+  .card.tint { background: var(--accent-soft); border-color: transparent; }
+  .card.tint .k { color: var(--accent); font-weight: 700; }
+  .cta { display: inline-block; background: var(--btn-bg); color: var(--btn-fg); border: 2px solid var(--btn-bg); font-weight: 600; font-size: 15px;
+         padding: 10px 20px; border-radius: var(--radius); text-decoration: none; margin: 16px 10px 0 0; }
+  .cta.ghost { background: transparent; color: var(--head-fg); border-color: var(--head-fg); }
+  .cta-block { text-align: center; padding: 26px 18px; background: var(--head-bg); border-color: var(--head-bg); color: var(--head-fg); }
+  .cta-block h3 { color: var(--head-fg); }
+  .cta-block p { max-width: 54ch; margin: 0 auto; opacity: .8; }
+  .note { border-left: 3px solid var(--btn-bg); background: var(--card); border-radius: 4px; padding: 12px 16px; margin-top: 16px; color: var(--muted); }
+  .note strong { color: var(--ink); }
+  .stats { display: grid; gap: 12px; grid-template-columns: repeat(3, 1fr); }
+  .stat { background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--btn-bg); border-radius: var(--radius); padding: 14px 16px; }
+  .stat .n { font-size: 34px; line-height: 1.1; color: var(--ink); font-weight: 600; }
+  .stat .w { font-weight: 600; margin: 4px 0 2px; }
+  .stat .c { color: var(--muted); font-size: 13px; }
+  .stats.four { grid-template-columns: repeat(4, 1fr); }
+  .stats.four .stat .n { font-size: 30px; }
+  @media (max-width: 980px) { .stats.four { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .stats.four { grid-template-columns: 1fr; } }
+  .stat .delta { display: inline-block; vertical-align: middle; margin-left: 8px; padding: 2px 10px; border-radius: 99px; background: var(--btn-bg); color: var(--btn-fg); font: 700 15px/1.4 system-ui, sans-serif; letter-spacing: 0; }
+  .stat .flow { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; margin-top: 8px; font-size: 12.5px; color: var(--ink); }
+  .stat .flow span { background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 2px 7px; white-space: nowrap; }
+  .stat .flow i { font-style: normal; color: var(--muted); }
+  .mission { background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--btn-bg); border-radius: var(--radius); padding: 16px 18px; margin-top: 12px; }
+  .mission .label { color: var(--accent); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
+  .mission .grid { grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .mission .card { background: var(--bg); border-color: transparent; padding: 12px 14px; }
+  .mission .card p { font-size: 13.5px; margin: 0; }
+  .mission .k2 { font-weight: 700; margin-bottom: 4px; }
+  .mission .after { color: var(--muted); margin: 10px 0 0; }
+  .ws { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); margin-bottom: 14px; overflow: hidden; break-inside: avoid; }
+  .ws-head { background: var(--head-bg); color: var(--head-fg); padding: 14px 18px; }
+  summary.ws-head { display: block; cursor: pointer; list-style: none; position: relative; padding-right: 170px; }
+  summary.ws-head::-webkit-details-marker { display: none; }
+  .ws-head .ws-num { color: var(--head-accent); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
+  .ws-head h3 { color: var(--head-fg); margin: 2px 0 4px; }
+  .ws-head p { margin: 0; opacity: .8; }
+  .ws-toggle { position: absolute; right: 18px; top: 50%; transform: translateY(-50%); font-size: 13px; font-weight: 600;
+               border: 1px solid var(--head-fg); border-radius: 99px; padding: 5px 12px; white-space: nowrap; opacity: .9; }
+  .ws-toggle::before { content: attr(data-closed); }
+  details[open] .ws-toggle::before { content: attr(data-open); }
+  .ws-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; padding: 14px 18px; }
+  .ws-cols .label { font-size: 12px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
+  .ws-cols p { margin: 0 0 8px; }
+  .ws-foot { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
+  .ws-foot > div { padding: 10px 18px; font-size: 14px; }
+  .ws-foot span { display: block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 2px; }
+  .ws-foot .done { background: var(--done-bg); }
+  .ws-foot .check { background: var(--check-bg); }
+  @media (max-width: 820px) { .stats { grid-template-columns: 1fr; } .mission .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 720px) { .ws-cols, .ws-foot { grid-template-columns: 1fr; } }
+  @media (max-width: 620px) { summary.ws-head { padding-right: 18px; } .ws-toggle { position: static; display: inline-block; transform: none; margin-top: 8px; } }
+  @media (max-width: 480px) { .mission .grid { grid-template-columns: 1fr; } }
+  @page { size: A4; margin: 8mm 11mm; }
+  @media print {
+    body { background: #fff; font-size: 9px; line-height: 1.4; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    main { padding: 0; max-width: none; }
+    h1 { font-size: 18px; margin: 2px 0 5px; }
+    h2 { font-size: 12px; margin: 8px 0 4px; break-after: avoid; }
+    h3 { font-size: 10.5px; margin: 0 0 3px; }
+    p { margin: 0 0 4px; }
+    li { margin-bottom: 1px; }
+    ul { padding-left: 13px; }
+    .eyebrow { font-size: 9px; }
+    .lede { font-size: 10.5px; max-width: none; }
+    .byline, .legend, footer { font-size: 8.5px; }
+    .byline { margin-top: 4px; } .legend { margin-bottom: 5px; }
+    .card { padding: 6px 9px; border-radius: 6px; break-inside: avoid; }
+    .grid { gap: 6px; grid-template-columns: repeat(3, 1fr); }
+    .grid[style] { margin-top: 7px !important; }
+    .card[style] { margin-top: 6px !important; }
+    .fact .k, .label, th, .month .label { font-size: 7.5px; margin-bottom: 1px; }
+    .fact .v { font-size: 10px; margin: 1px 0; }
+    .tag { font-size: 7.5px; padding: 0 5px; }
+    .month { grid-template-columns: 1fr; gap: 2px; margin-bottom: 7px; break-inside: avoid; }
+    .month .num { font-size: 8px; padding-top: 0; }
+    .month .cols { grid-template-columns: 1fr 1.15fr 0.85fr; gap: 9px; margin-top: 4px; }
+    .proof, .validate { font-size: 9px; margin-top: 4px; }
+    .validate { padding: 4px 8px; border-radius: 5px; }
+    table { font-size: 9px; } th, td { padding: 4px 6px; }
+    footer { margin-top: 10px; padding-top: 6px; }
+    /* composants communs */
+    header.band { padding: 12px 14px 10px; }
+    .cta { font-size: 9px; padding: 4px 10px; margin: 6px 6px 0 0; border-width: 1px; }
+    .cta-block { padding: 8px; }
+    .note { padding: 5px 9px; margin-top: 6px; }
+    .stats { gap: 6px; }
+    .stat { padding: 5px 7px; border-top-width: 2px; }
+    .stat .n { font-size: 15px; } .stat .w { font-size: 8px; margin: 1px 0; } .stat .c { font-size: 7.5px; }
+    .stats.four { grid-template-columns: repeat(4, 1fr); } .stats.four .stat .n { font-size: 14px; }
+    .stat .delta { font-size: 8px; padding: 0 5px; margin-left: 4px; } .stat .flow { font-size: 7px; gap: 2px 3px; margin-top: 3px; } .stat .flow span { padding: 0 3px; border-radius: 3px; }
+    .mission { padding: 6px 9px; margin-top: 6px; }
+    .mission .label { font-size: 7.5px; } .mission .card { padding: 5px 7px; } .mission .card p { font-size: 8.5px; }
+    .mission .after { margin-top: 4px; }
+    .ws-toggle { display: none; } summary.ws-head { padding-right: 9px; }
+    .ws { margin-bottom: 6px; }
+    .ws-head { padding: 5px 9px; } .ws-head .ws-num { font-size: 7.5px; } .ws-head h3 { margin: 0 0 1px; }
+    .ws-cols { gap: 9px; padding: 5px 9px; } .ws-cols .label, .ws-foot span { font-size: 7.5px; margin-bottom: 1px; } .ws-cols p { margin: 0 0 3px; }
+    .ws-foot > div { padding: 4px 9px; font-size: 9px; }
+    .sources { display: none; }
+  }
+</style>
+<meta name="robots" content="noindex, nofollow">
+<script>if(location.hostname.endsWith('github.io')){var s=document.createElement('script');s.async=true;s.dataset.goatcounter='https://thomasbousseau.goatcounter.com/count';s.src='https://gc.zgo.at/count.js';document.head.appendChild(s);}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --ink: #0b132b; --muted: #565656; --line: #e4e6ec; --bg: #f6f6f8; --card: #ffffff;
+          --accent: #0b132b; --accent-soft: #fdf2d6; --hyp: #0b132b; --hyp-soft: #fdf2d6;
+          --head-bg: #0b132b; --head-fg: #ffffff; --head-accent: #f4bf46; --btn-bg: #f4bf46; --btn-fg: #0b132b;
+          --radius: 6px; --done-bg: #eef0f6; --check-bg: #fdf2d6; }
+  body { font-family: "Open Sans", "Segoe UI", system-ui, sans-serif; }
+  h1, h2, h3, .stat .n, .fact .v { font-family: Poppins, "Open Sans", sans-serif; font-weight: 600; letter-spacing: 0; }
+  h1 { font-size: 34px; line-height: 1.18; } h2 { font-size: 24px; }
+  .cta { border-radius: 0; font-weight: 700; }
+  .card.tint { background: var(--head-bg); color: #fff; border-color: var(--head-bg); }
+  .card.tint .k { color: var(--head-accent); } .card.tint .v { color: #fff; }
+  .tag { background: #eef0f6; color: var(--ink); }
+  .tag.hyp { background: #fdf2d6; }
+  th { color: var(--ink); }
+  @media print { h1 { font-size: 19px; } h2 { font-size: 13px; } }
+</style>
+</head>
+
+<body>
+<main>
+<header class="band">
+<div class="eyebrow">Pyl.Tech · Manager - AI Solutions &amp; Transformation</div>
+<h1>Mes 100 premiers jours : faire tourner et <em>grandir</em> la practice IA</h1>
+<p class="lede">Ateliers, diagnostic, proposition chiffrée, agents IA construits moi-même, formation des équipes : c'est la mission de conseil que je mène aujourd'hui, à plus petite échelle. Avant cela, j'ai été le client de ces projets, en comité de direction. Voici comment je m'y prendrais chez Pyl.Tech.</p>
+<p class="byline">Thomas Bousseau · thomas.bousseau@gmail.com · <a href="https://www.linkedin.com/in/thomasbousseau/">LinkedIn</a> · Octobre 2026</p>
+<a class="cta" href="https://calendar.app.google/NYQLfD6jTTK2rtkw7" target="_blank" rel="noopener" data-goatcounter-click="book-meeting-pyl-tech-haut" data-goatcounter-title="Pyl.Tech : rendez-vous (haut)">Réserver un créneau dans mon agenda</a><a class="cta ghost" href="CV_Thomas_Bousseau.pdf" target="_blank" rel="noopener" data-goatcounter-click="cv-pyl-tech-haut" data-goatcounter-title="Pyl.Tech : CV (haut)">Voir mon CV</a>
+</header>
+
+<p class="note"><strong>Avant de lire.</strong> J'ai construit cette analyse avec les informations dont je dispose, c'est-à-dire des informations publiques. Elle est donc incomplète, et sans doute fausse par endroits. Je serais ravi d'en savoir plus pour rendre ce plan plus précis.</p>
+
+<h2>Ce que j'ai déjà réalisé</h2>
+<div class="stats four">
+<div class="stat"><div class="n">−3 ETP<span class="delta">−20 %</span></div><div class="w">d'effectif à volume constant, par l'automatisation des workflows</div><div class="c">Golden Bees (Groupe Figaro), équipe de 15 personnes</div></div><div class="stat"><div class="n">80 %</div><div class="w">du temps de recommandation commerciale gagné</div><div class="c">Scénario orchestré sur n8n :<div class="flow"><span>Google Meet</span><i>→</i><span>brief client structuré</span><i>→</i><span>agent IA</span><i>→</i><span>Gamma</span></div></div></div><div class="stat"><div class="n">1 SaaS</div><div class="w">IA-native conçu et lancé : 10 000 utilisateurs en septembre 2026</div><div class="c">Lila, avec 1 PO et 9 développeurs</div></div><div class="stat"><div class="n">1 entreprise</div><div class="w">cofondée et dirigée pendant 5 ans</div><div class="c">Voila Vinos, Colombie : import de vin, 2 restaurants, plus de 30 salariés</div></div>
+</div>
+
+<div class="mission">
+<div class="label">Aujourd'hui, en mission de conseil · depuis septembre 2026</div>
+<h3>Transformation IA d'un cabinet d'audit et d'expertise comptable, de l'atelier à la production</h3>
+<p>En environnement réglementé, en direct avec les associés. Le cycle complet du poste, à l'échelle d'une mission :</p>
+<div class="grid">
+<div class="card"><div class="k2">Explorer</div><p>Auditions de la direction et des équipes, cartographie de jusqu'à 10 processus, priorisation des cas d'usage.</p></div>
+<div class="card"><div class="k2">Gagner</div><p>Proposition de mission et devis co-rédigés, recommandations chiffrées une à une pour arbitrage par la direction.</p></div>
+<div class="card"><div class="k2">Construire</div><p>Agents Claude et scénarios n8n reliés à Microsoft 365, avec validation humaine là où le jugement compte.</p></div>
+<div class="card"><div class="k2">Faire adopter</div><p>Formation des équipes, tests, puis transfert complet pour rendre le cabinet autonome.</p></div>
+</div>
+</div>
+
+<h2>Ma lecture de Pyl.Tech</h2>
+<p class="legend"><span class="tag">public</span> information publiée ·
+<span class="tag hyp">mon hypothèse</span> estimation de ma part, à confirmer avec vous.</p>
+<div class="grid">
+<div class="card fact"><div class="k">Positionnement</div><div class="v">Pure player 100 % Google Cloud depuis 2023, partenaire Premier</div><span class="tag">public</span></div><div class="card fact"><div class="k">Équipe</div><div class="v">Une cinquantaine de Pylotes, à Paris, Toulouse et Bordeaux</div><span class="tag">public</span></div><div class="card fact"><div class="k">Offre IA</div><div class="v">Une IA tournée vers les métiers, avec Gemini Enterprise</div><span class="tag">public</span></div><div class="card fact"><div class="k">Pourquoi ce poste</div><div class="v">La demande IA des clients dépasse la capacité à cadrer, chiffrer et livrer</div><span class="tag hyp">mon hypothèse</span></div><div class="card fact"><div class="k">Ce qui se vend</div><div class="v">Les clients achètent de l'adoption mesurée, plutôt que des démonstrations</div><span class="tag hyp">mon hypothèse</span></div><div class="card fact"><div class="k">Le levier</div><div class="v">Des briques réutilisables qui raccourcissent chaque nouveau projet</div><span class="tag hyp">mon hypothèse</span></div>
+</div>
+
+<h2>Le plan en trois chantiers</h2>
+<div class="grid">
+<div class="card fact tint"><div class="k">Chantier 1</div><div class="v">Gagner</div><p>Des ateliers aux propositions qui convainquent un comité de direction.</p></div>
+<div class="card fact tint"><div class="k">Chantier 2</div><div class="v">Livrer jusqu'à l'adoption</div><p>Du POC à la production, puis à l'usage réel.</p></div>
+<div class="card fact tint"><div class="k">Chantier 3</div><div class="v">Faire grandir l'équipe</div><p>Coaching, revues de cadrage, briques réutilisables.</p></div>
+</div>
+<div class="card" style="margin-top:12px">
+<div class="label">Au jour 100, vous aurez</div>
+<ul>
+<li>Un pipeline d'opportunités qualifiées et de premières propositions défendues avec Dorian.</li>
+<li>Des projets menés jusqu'en production, avec leur adoption mesurée.</li>
+<li>Un rituel de revue de cadrage et une première bibliothèque de briques réutilisables.</li>
+<li>Mes premières certifications Google Cloud, un bilan chiffré et une feuille de route à 12 mois.</li>
+</ul>
+</div>
+
+<h2>Les chantiers en détail</h2>
+<p class="legend">Cliquez sur un chantier pour l'ouvrir.</p>
+<details class="ws">
+<summary class="ws-head" data-goatcounter-click="detail-pyl-tech-1" data-goatcounter-title="Pyl.Tech : chantier 1"><span class="ws-num">Chantier 1</span><h3>Gagner</h3><p>Une bonne proposition part d'un problème métier chiffré, pas d'une technologie.</p><span class="ws-toggle" data-closed="Voir le détail ▾" data-open="Replier ▴"></span></summary>
+<div class="ws-cols">
+<div><div class="label">Ce que je regarderai</div><ul><li>Les opportunités en cours et leur taux de transformation.</li><li>Les propositions gagnées et perdues, et pourquoi.</li><li>Les offres packagées autour de Gemini Enterprise.</li></ul></div>
+<div><div class="label">Ce que je ferai</div><ul><li>Animer des ateliers de découverte chez les prospects.</li><li>Une trame de proposition et une grille de chiffrage communes.</li><li>Défendre les solutions devant les comités de direction, avec Dorian.</li></ul></div>
+<div><div class="label">Ce que vous aurez</div><p>Des propositions plus rapides à produire, avec un chiffrage cohérent.</p><div class="label">Indicateur</div><p>Taux de transformation des propositions.</p></div>
+</div>
+<div class="ws-foot">
+<div class="done"><span>Déjà fait</span>Commercial B2B auprès de décideurs RH chez Golden Bees, puis 13 partenariats ouverts. Proposition de mission et devis co-rédigés pour un cabinet d'audit.</div>
+<div class="check"><span>À valider avec vous</span>Les secteurs et la taille des clients visés en priorité.</div>
+</div>
+</details>
+<details class="ws">
+<summary class="ws-head" data-goatcounter-click="detail-pyl-tech-2" data-goatcounter-title="Pyl.Tech : chantier 2"><span class="ws-num">Chantier 2</span><h3>Livrer jusqu'à l'adoption</h3><p>Une solution n'a de valeur que si elle est utilisée : c'est votre propre phrase.</p><span class="ws-toggle" data-closed="Voir le détail ▾" data-open="Replier ▴"></span></summary>
+<div class="ws-cols">
+<div><div class="label">Ce que je regarderai</div><ul><li>Les projets en cours, leur stade et leurs points de blocage.</li><li>Le passage du POC à la production avec les DSI clients.</li><li>La façon dont l'adoption est mesurée après la livraison.</li></ul></div>
+<div><div class="label">Ce que je ferai</div><ul><li>Construire moi-même sur les projets prioritaires : agents, workflows, intégrations.</li><li>Un chemin vers la production défini dès le POC.</li><li>Former les utilisateurs et suivre l'usage après la mise en service.</li></ul></div>
+<div><div class="label">Ce que vous aurez</div><p>Des solutions en production, et un suivi d'adoption pour chacune.</p><div class="label">Indicateur</div><p>Part des POC passés en production.</p></div>
+</div>
+<div class="ws-foot">
+<div class="done"><span>Déjà fait</span>Agents IA en production au Groupe Figaro. Scénario n8n de bout en bout (Google Meet → brief client structuré → agent IA → Gamma). Lancement de Lila, SaaS IA-native.</div>
+<div class="check"><span>À valider avec vous</span>Le niveau d'autonomie attendu sur les briques Google dès les premières semaines.</div>
+</div>
+</details>
+<details class="ws">
+<summary class="ws-head" data-goatcounter-click="detail-pyl-tech-3" data-goatcounter-title="Pyl.Tech : chantier 3"><span class="ws-num">Chantier 3</span><h3>Faire grandir l'équipe</h3><p>La qualité ne repose pas sur un expert : elle se transmet et elle s'outille.</p><span class="ws-toggle" data-closed="Voir le détail ▾" data-open="Replier ▴"></span></summary>
+<div class="ws-cols">
+<div><div class="label">Ce que je regarderai</div><ul><li>Le niveau et les envies de chaque consultant.</li><li>Les cadrages et les propositions récents.</li><li>Ce qui est reconstruit à chaque projet.</li></ul></div>
+<div><div class="label">Ce que je ferai</div><ul><li>Des revues de cadrage et de proposition régulières, avec un retour écrit.</li><li>Une bibliothèque de briques réutilisables : prompts, workflows, connecteurs.</li><li>Un retour d'expérience à la fin de chaque projet.</li></ul></div>
+<div><div class="label">Ce que vous aurez</div><p>Des consultants qui progressent et une bibliothèque partagée.</p><div class="label">Indicateur</div><p>Part des projets démarrés à partir de briques existantes.</p></div>
+</div>
+<div class="ws-foot">
+<div class="done"><span>Déjà fait</span>Management d'une équipe de 15 personnes et structuration du management intermédiaire chez Golden Bees.</div>
+<div class="check"><span>À valider avec vous</span>La taille de l'équipe IA et les recrutements prévus.</div>
+</div>
+</details>
+
+<h2>Calendrier</h2>
+<div class="card table-wrap"><table>
+<thead><tr><th>Chantier</th><th>Comprendre<br>jours 1 à 30</th><th>Premiers résultats<br>jours 31 à 60</th><th>Structurer et pérenniser<br>jours 61 à 100</th></tr></thead>
+<tbody>
+<tr><td><strong>1. Gagner</strong></td><td>Accompagner Dorian en rendez-vous clients. Relire les propositions récentes.</td><td>Premières propositions portées. Trame et grille de chiffrage communes.</td><td>Pipeline qualifié. Retours sur les affaires gagnées et perdues.</td></tr>
+<tr><td><strong>2. Livrer</strong></td><td>Reprendre un projet en cours et construire dessus. Premières certifications Google.</td><td>Un projet mené jusqu'en production.</td><td>Suivi d'adoption installé sur chaque projet livré.</td></tr>
+<tr><td><strong>3. Faire grandir</strong></td><td>Rencontrer chaque consultant. Recenser ce qui est reconstruit à chaque projet.</td><td>Revues de cadrage régulières. Premières briques partagées.</td><td>Bibliothèque en usage. Bilan chiffré et feuille de route à 12 mois.</td></tr>
+</tbody></table></div>
+
+<div class="grid" style="margin-top:12px">
+<div class="card"><h3>Ce que je ne ferai pas</h3><ul>
+<li>Vendre un POC sans chemin vers la production.</li>
+<li>Déployer une technologie sans problème métier à résoudre.</li>
+<li>Manager depuis un tableau de bord, sans construire.</li>
+</ul></div>
+<div class="card"><h3>Ce dont j'aurai besoin</h3><ul>
+<li>Être en rendez-vous clients avec Dorian dès la première semaine.</li>
+<li>Un accès aux propositions et aux livrables passés.</li>
+<li>Du temps pour passer mes premières certifications Google Cloud.</li>
+</ul></div>
+<div class="card"><h3>Ma position, en toute franchise</h3>
+<p>Je n'ai pas encore travaillé sur Google Cloud ni sur Gemini : je construis aujourd'hui avec Claude et n8n. Je n'ai pas répondu à un appel d'offres formel. Ce que j'apporte : j'ai été le client de ces projets en comité de direction, je les mène aujourd'hui côté conseil, et je construis moi-même.</p></div>
+</div>
+
+<h2>Couverture des missions du poste</h2>
+<div class="card table-wrap"><table>
+<thead><tr><th>Mission de l'offre</th><th>Où</th><th>Ce que vous aurez en main</th></tr></thead>
+<tbody>
+<tr><td><strong>Explorer et diagnostiquer</strong> : ateliers, frustrations des équipes, cas d'usage</td><td>Chantier 1 · toutes phases</td><td>Ateliers menés, cas d'usage priorisés</td></tr>
+<tr><td><strong>Concevoir et prototyper</strong> : POC, MVP, agents IA, workflows</td><td>Chantier 2 · toutes phases</td><td>Solutions construites et démontrées</td></tr>
+<tr><td><strong>Déployer et intégrer</strong> : production, écosystème Google, No/Low Code, DSI</td><td>Chantier 2 · jours 31 à 100</td><td>Solutions en production</td></tr>
+<tr><td><strong>Gagner</strong> : avant-vente, propositions, appels d'offres, chiffrage, comités de direction</td><td>Chantier 1 · toutes phases</td><td>Pipeline qualifié, trame et grille de chiffrage</td></tr>
+<tr><td><strong>Faire grandir</strong> : coaching, revues, qualité, briques réutilisables</td><td>Chantier 3 · toutes phases</td><td>Revues régulières, bibliothèque partagée</td></tr>
+<tr><td><strong>Former et accompagner</strong> : adoption chez le client</td><td>Chantier 2 · jours 61 à 100</td><td>Suivi d'adoption par projet</td></tr>
+</tbody></table></div>
+
+<h2>Ce que je ne sais pas encore</h2>
+<div class="card">
+<p>Ce plan est une base de discussion. Ces réponses le feraient évoluer :</p>
+<ul>
+<li>Combien de consultants dans l'équipe IA, et à quel niveau ?</li>
+<li>Comment se partagent l'avant-vente et la livraison entre Dorian et ce poste ?</li>
+<li>Quelle place pour Gemini Enterprise par rapport aux projets sur mesure ?</li>
+<li>Quels secteurs et quelles tailles de clients visez-vous en priorité ?</li>
+</ul>
+</div>
+
+<div class="card cta-block" style="margin-top:24px">
+<h3>Confrontons ce plan à votre réalité</h3>
+<p>Vingt minutes suffisent pour me dire où je vois juste et où je me trompe.</p>
+<a class="cta" href="https://calendar.app.google/NYQLfD6jTTK2rtkw7" target="_blank" rel="noopener" data-goatcounter-click="book-meeting-pyl-tech-bas" data-goatcounter-title="Pyl.Tech : rendez-vous (bas)">Réserver un créneau dans mon agenda</a><a class="cta ghost" href="CV_Thomas_Bousseau.pdf" target="_blank" rel="noopener" data-goatcounter-click="cv-pyl-tech-bas" data-goatcounter-title="Pyl.Tech : CV (bas)">Voir mon CV</a>
+</div>
+
+<footer>
+<p>Thomas Bousseau · thomas.bousseau@gmail.com</p>
+<p class="sources">Sources publiques consultées le 5 octobre 2026 : <a href="https://www.welcometothejungle.com/fr/companies/pyl-tech/jobs/senior-consultant-ia_paris">offre Pyl.Tech</a> · <a href="https://pyl.tech/qui-sommes-nous/">pyl.tech</a></p>
+</footer>
+</main>
+<script>window.addEventListener('beforeprint',function(){document.querySelectorAll('details').forEach(function(d){d.open=true;});});</script>
+</body>
+</html>
