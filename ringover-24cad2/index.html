@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Customer Operations Manager — Mes 100 premiers jours chez Ringover · Thomas Bousseau</title>
+<style>
+  :root {
+    --ink: #16202e;
+    --muted: #5b6676;
+    --line: #dfe4ea;
+    --bg: #f6f7f9;
+    --card: #ffffff;
+    --accent: #1f5fbf;
+    --accent-soft: #e8f0fc;
+    --hyp: #8a5a00;
+    --hyp-soft: #fdf3dc;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 15px/1.55 "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  }
+  main { max-width: 920px; margin: 0 auto; padding: 32px 16px 48px; }
+  h1 { font-size: 30px; line-height: 1.2; margin: 6px 0 10px; letter-spacing: -0.01em; }
+  h2 { font-size: 19px; margin: 36px 0 12px; }
+  h3 { font-size: 16px; margin: 0 0 6px; }
+  p { margin: 0 0 10px; }
+  ul { margin: 0; padding-left: 18px; }
+  li { margin-bottom: 4px; }
+  a { color: var(--accent); }
+  .eyebrow { color: var(--accent); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: .06em; }
+  .lede { font-size: 17px; color: var(--muted); max-width: 70ch; }
+  .byline { color: var(--muted); font-size: 13px; margin-top: 12px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; }
+  .grid { display: grid; gap: 12px; grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 820px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .grid { grid-template-columns: 1fr; } }
+  .fact .k { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .05em; }
+  .fact .v { font-size: 17px; font-weight: 600; margin: 2px 0; }
+  .tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 1px 7px; border-radius: 99px; background: var(--accent-soft); color: var(--accent); }
+  .tag.hyp { background: var(--hyp-soft); color: var(--hyp); }
+  .legend { color: var(--muted); font-size: 13px; margin-bottom: 12px; }
+  .label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
+  .month { display: grid; grid-template-columns: 92px 1fr; gap: 16px; margin-bottom: 12px; break-inside: avoid; }
+  .month .num { font-weight: 700; color: var(--accent); font-size: 13px; text-transform: uppercase; letter-spacing: .05em; padding-top: 2px; }
+  .month .cols { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-top: 10px; }
+  .month .label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
+  .validate { margin-top: 10px; padding: 8px 12px; border-radius: 8px; background: var(--hyp-soft); color: var(--hyp); font-size: 14px; }
+  .proof { margin-top: 8px; font-size: 14px; color: var(--muted); }
+  .note { border-left: 3px solid var(--accent); background: var(--card); border-radius: 8px; padding: 12px 16px; margin-top: 16px; color: var(--muted); }
+  .note strong { color: var(--ink); }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+  footer { margin-top: 36px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+  @media (max-width: 560px) {
+    h1 { font-size: 24px; }
+    .month { grid-template-columns: 1fr; gap: 4px; }
+  }
+  /* composants communs */
+  :root { --head-bg: var(--ink); --head-fg: #ffffff; --head-accent: var(--accent); --btn-bg: var(--accent); --btn-fg: #ffffff;
+          --radius: 10px; --done-bg: var(--accent-soft); --check-bg: var(--hyp-soft); }
+  header.band { background: var(--head-bg); color: var(--head-fg); border-radius: var(--radius); padding: 30px 30px 26px; }
+  header.band .eyebrow { color: var(--head-accent); }
+  header.band .lede { color: var(--head-fg); opacity: .85; }
+  header.band .byline, header.band .byline a { color: var(--head-fg); opacity: .7; }
+  h1 em { font-style: normal; color: var(--head-accent); }
+  .card, .validate { border-radius: var(--radius); }
+  .card.tint { background: var(--accent-soft); border-color: transparent; }
+  .card.tint .k { color: var(--accent); font-weight: 700; }
+  .cta { display: inline-block; background: var(--btn-bg); color: var(--btn-fg); border: 2px solid var(--btn-bg); font-weight: 600; font-size: 15px;
+         padding: 10px 20px; border-radius: var(--radius); text-decoration: none; margin: 16px 10px 0 0; }
+  .cta.ghost { background: transparent; color: var(--head-fg); border-color: var(--head-fg); }
+  .cta-block { text-align: center; padding: 26px 18px; background: var(--head-bg); border-color: var(--head-bg); color: var(--head-fg); }
+  .cta-block h3 { color: var(--head-fg); }
+  .cta-block p { max-width: 54ch; margin: 0 auto; opacity: .8; }
+  .note { border-left: 3px solid var(--btn-bg); background: var(--card); border-radius: 4px; padding: 12px 16px; margin-top: 16px; color: var(--muted); }
+  .note strong { color: var(--ink); }
+  .stats { display: grid; gap: 12px; grid-template-columns: repeat(3, 1fr); }
+  .stat { background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--btn-bg); border-radius: var(--radius); padding: 14px 16px; }
+  .stat .n { font-size: 34px; line-height: 1.1; color: var(--ink); font-weight: 600; }
+  .stat .w { font-weight: 600; margin: 4px 0 2px; }
+  .stat .c { color: var(--muted); font-size: 13px; }
+  .stats.four { grid-template-columns: repeat(4, 1fr); }
+  .stats.four .stat .n { font-size: 30px; }
+  @media (max-width: 980px) { .stats.four { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .stats.four { grid-template-columns: 1fr; } }
+  .stat .delta { display: inline-block; vertical-align: middle; margin-left: 8px; padding: 2px 10px; border-radius: 99px; background: var(--btn-bg); color: var(--btn-fg); font: 700 15px/1.4 system-ui, sans-serif; letter-spacing: 0; }
+  .stat .flow { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; margin-top: 8px; font-size: 12.5px; color: var(--ink); }
+  .stat .flow span { background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 2px 7px; white-space: nowrap; }
+  .stat .flow i { font-style: normal; color: var(--muted); }
+  .mission { background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--btn-bg); border-radius: var(--radius); padding: 16px 18px; margin-top: 12px; }
+  .mission .label { color: var(--accent); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
+  .mission .grid { grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .mission .card { background: var(--bg); border-color: transparent; padding: 12px 14px; }
+  .mission .card p { font-size: 13.5px; margin: 0; }
+  .mission .k2 { font-weight: 700; margin-bottom: 4px; }
+  .mission .after { color: var(--muted); margin: 10px 0 0; }
+  .ws { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); margin-bottom: 14px; overflow: hidden; break-inside: avoid; }
+  .ws-head { background: var(--head-bg); color: var(--head-fg); padding: 14px 18px; }
+  summary.ws-head { display: block; cursor: pointer; list-style: none; position: relative; padding-right: 170px; }
+  summary.ws-head::-webkit-details-marker { display: none; }
+  .ws-head .ws-num { color: var(--head-accent); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
+  .ws-head h3 { color: var(--head-fg); margin: 2px 0 4px; }
+  .ws-head p { margin: 0; opacity: .8; }
+  .ws-toggle { position: absolute; right: 18px; top: 50%; transform: translateY(-50%); font-size: 13px; font-weight: 600;
+               border: 1px solid var(--head-fg); border-radius: 99px; padding: 5px 12px; white-space: nowrap; opacity: .9; }
+  .ws-toggle::before { content: attr(data-closed); }
+  details[open] .ws-toggle::before { content: attr(data-open); }
+  .ws-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; padding: 14px 18px; }
+  .ws-cols .label { font-size: 12px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
+  .ws-cols p { margin: 0 0 8px; }
+  .ws-foot { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
+  .ws-foot > div { padding: 10px 18px; font-size: 14px; }
+  .ws-foot span { display: block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 2px; }
+  .ws-foot .done { background: var(--done-bg); }
+  .ws-foot .check { background: var(--check-bg); }
+  @media (max-width: 820px) { .stats { grid-template-columns: 1fr; } .mission .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 720px) { .ws-cols, .ws-foot { grid-template-columns: 1fr; } }
+  @media (max-width: 620px) { summary.ws-head { padding-right: 18px; } .ws-toggle { position: static; display: inline-block; transform: none; margin-top: 8px; } }
+  @media (max-width: 480px) { .mission .grid { grid-template-columns: 1fr; } }
+  @page { size: A4; margin: 8mm 11mm; }
+  @media print {
+    body { background: #fff; font-size: 9px; line-height: 1.4; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    main { padding: 0; max-width: none; }
+    h1 { font-size: 18px; margin: 2px 0 5px; }
+    h2 { font-size: 12px; margin: 8px 0 4px; break-after: avoid; }
+    h3 { font-size: 10.5px; margin: 0 0 3px; }
+    p { margin: 0 0 4px; }
+    li { margin-bottom: 1px; }
+    ul { padding-left: 13px; }
+    .eyebrow { font-size: 9px; }
+    .lede { font-size: 10.5px; max-width: none; }
+    .byline, .legend, footer { font-size: 8.5px; }
+    .byline { margin-top: 4px; } .legend { margin-bottom: 5px; }
+    .card { padding: 6px 9px; border-radius: 6px; break-inside: avoid; }
+    .grid { gap: 6px; grid-template-columns: repeat(3, 1fr); }
+    .grid[style] { margin-top: 7px !important; }
+    .card[style] { margin-top: 6px !important; }
+    .fact .k, .label, th, .month .label { font-size: 7.5px; margin-bottom: 1px; }
+    .fact .v { font-size: 10px; margin: 1px 0; }
+    .tag { font-size: 7.5px; padding: 0 5px; }
+    .month { grid-template-columns: 1fr; gap: 2px; margin-bottom: 7px; break-inside: avoid; }
+    .month .num { font-size: 8px; padding-top: 0; }
+    .month .cols { grid-template-columns: 1fr 1.15fr 0.85fr; gap: 9px; margin-top: 4px; }
+    .proof, .validate { font-size: 9px; margin-top: 4px; }
+    .validate { padding: 4px 8px; border-radius: 5px; }
+    table { font-size: 9px; } th, td { padding: 4px 6px; }
+    footer { margin-top: 10px; padding-top: 6px; }
+    /* composants communs */
+    header.band { padding: 12px 14px 10px; }
+    .cta { font-size: 9px; padding: 4px 10px; margin: 6px 6px 0 0; border-width: 1px; }
+    .cta-block { padding: 8px; }
+    .note { padding: 5px 9px; margin-top: 6px; }
+    .stats { gap: 6px; }
+    .stat { padding: 5px 7px; border-top-width: 2px; }
+    .stat .n { font-size: 15px; } .stat .w { font-size: 8px; margin: 1px 0; } .stat .c { font-size: 7.5px; }
+    .stats.four { grid-template-columns: repeat(4, 1fr); } .stats.four .stat .n { font-size: 14px; }
+    .stat .delta { font-size: 8px; padding: 0 5px; margin-left: 4px; } .stat .flow { font-size: 7px; gap: 2px 3px; margin-top: 3px; } .stat .flow span { padding: 0 3px; border-radius: 3px; }
+    .mission { padding: 6px 9px; margin-top: 6px; }
+    .mission .label { font-size: 7.5px; } .mission .card { padding: 5px 7px; } .mission .card p { font-size: 8.5px; }
+    .mission .after { margin-top: 4px; }
+    .ws-toggle { display: none; } summary.ws-head { padding-right: 9px; }
+    .ws { margin-bottom: 6px; }
+    .ws-head { padding: 5px 9px; } .ws-head .ws-num { font-size: 7.5px; } .ws-head h3 { margin: 0 0 1px; }
+    .ws-cols { gap: 9px; padding: 5px 9px; } .ws-cols .label, .ws-foot span { font-size: 7.5px; margin-bottom: 1px; } .ws-cols p { margin: 0 0 3px; }
+    .ws-foot > div { padding: 4px 9px; font-size: 9px; }
+    .sources { display: none; }
+  }
+</style>
+<meta name="robots" content="noindex, nofollow">
+<script>if(location.hostname.endsWith('github.io')){var s=document.createElement('script');s.async=true;s.dataset.goatcounter='https://thomasbousseau.goatcounter.com/count';s.src='https://gc.zgo.at/count.js';document.head.appendChild(s);}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root { --ink: #001b39; --muted: #567191; --line: #e1e8f2; --bg: #f0f3fa; --card: #ffffff;
+          --accent: #1074c6; --accent-soft: #e8f4fd; --hyp: #001b39; --hyp-soft: #fff3cf;
+          --head-bg: #001b39; --head-fg: #ffffff; --head-accent: #00ddd0; --btn-bg: #27c9d6; --btn-fg: #001b39;
+          --radius: 14px; --done-bg: #e8f4fd; --check-bg: #fff3cf; }
+  body { font-family: Inter, "Segoe UI", system-ui, sans-serif; color: #394759; }
+  h1, h2, h3, .stat .n, .fact .v { font-family: Poppins, Inter, sans-serif; font-weight: 600; letter-spacing: 0; color: var(--ink); }
+  header.band h1, .ws-head h3, .cta-block h3 { color: #fff; }
+  h1 { font-size: 34px; line-height: 1.2; } h2 { font-size: 24px; }
+  .cta { border-radius: 8px; }
+  .card.tint { background: #e8f4fd; }
+  .grid .card.tint:nth-child(2) { background: #dff8f6; }
+  .grid .card.tint:nth-child(3) { background: #fff3cf; }
+  th { color: var(--accent); }
+  @media print { h1 { font-size: 19px; } h2 { font-size: 13px; } }
+</style>
+</head>
+
+<body>
+<main>
+<header class="band">
+<div class="eyebrow">Ringover · Customer Operations Manager</div>
+<h1>Mes 100 premiers jours : des quick wins qui font mouche, <em>puis la roadmap</em></h1>
+<p class="lede">J'ai dirigé le Customer Success, modernisé Zendesk et construit sur n8n l'automatisation qui prépare les réunions clients. Je connais ce poste du côté de celui qui en a besoin. Voici comment je l'aborderais chez Ringover.</p>
+<p class="byline">Thomas Bousseau · thomas.bousseau@gmail.com · <a href="https://www.linkedin.com/in/thomasbousseau/">LinkedIn</a> · Octobre 2026</p>
+<a class="cta" href="https://calendar.app.google/NYQLfD6jTTK2rtkw7" target="_blank" rel="noopener" data-goatcounter-click="book-meeting-ringover-haut" data-goatcounter-title="Ringover : rendez-vous (haut)">Réserver un créneau dans mon agenda</a><a class="cta ghost" href="CV_Thomas_Bousseau.pdf" target="_blank" rel="noopener" data-goatcounter-click="cv-ringover-haut" data-goatcounter-title="Ringover : CV (haut)">Voir mon CV</a>
+</header>
+
+<p class="note"><strong>Avant de lire.</strong> J'ai construit cette analyse avec les informations dont je dispose, c'est-à-dire des informations publiques. Elle est donc incomplète, et sans doute fausse par endroits. Je serais ravi d'en savoir plus pour rendre ce plan plus précis.</p>
+
+<h2>Ce que j'ai déjà réalisé</h2>
+<div class="stats four">
+<div class="stat"><div class="n">−3 ETP<span class="delta">−20 %</span></div><div class="w">d'effectif à volume constant, par l'automatisation des workflows</div><div class="c">Golden Bees (Groupe Figaro), équipe de 15 personnes</div></div><div class="stat"><div class="n">80 %</div><div class="w">du temps de recommandation commerciale gagné</div><div class="c">Scénario orchestré sur n8n :<div class="flow"><span>Google Meet</span><i>→</i><span>brief client structuré</span><i>→</i><span>agent IA</span><i>→</i><span>Gamma</span></div></div></div><div class="stat"><div class="n">1 SaaS</div><div class="w">IA-native conçu et lancé : 10 000 utilisateurs en septembre 2026</div><div class="c">Lila, avec 1 PO et 9 développeurs</div></div><div class="stat"><div class="n">1 entreprise</div><div class="w">cofondée et dirigée pendant 5 ans</div><div class="c">Voila Vinos, Colombie : import de vin, 2 restaurants, plus de 30 salariés</div></div>
+</div>
+
+<div class="mission">
+<div class="label">Aujourd'hui, en mission de conseil · depuis septembre 2026</div>
+<h3>Automatisation et agents IA pour un cabinet d'audit et d'expertise comptable</h3>
+<p>De l'idée à la solution utilisée, en direct avec les associés. Ce que la mission produit :</p>
+<div class="grid">
+<div class="card"><div class="k2">Diagnostic</div><p>Auditions de la direction et des équipes, pour décrire les processus tels qu'ils sont vraiment exécutés.</p></div>
+<div class="card"><div class="k2">Priorisation</div><p>Chaque processus évalué selon son impact, sa faisabilité et le temps qu'il fait gagner.</p></div>
+<div class="card"><div class="k2">Agents en production</div><p>Agents Claude et scénarios n8n reliés aux outils du quotidien, avec validation humaine.</p></div>
+<div class="card"><div class="k2">Adoption</div><p>Tableau de bord, formation des équipes et transfert complet pour les rendre autonomes.</p></div>
+</div>
+</div>
+
+<h2>Ma lecture de Ringover</h2>
+<p class="legend"><span class="tag">public</span> information publiée ·
+<span class="tag hyp">mon hypothèse</span> estimation de ma part, à confirmer avec vous.</p>
+<div class="grid">
+<div class="card fact"><div class="k">Clients</div><div class="v">Plus de 14 000 clients, de la PME à l'entreprise internationale</div><span class="tag">public</span></div><div class="card fact"><div class="k">Organisation</div><div class="v">Un département Customer Management en pleine structuration : ce poste est créé</div><span class="tag">public</span></div><div class="card fact"><div class="k">Produit</div><div class="v">Vous vendez de l'IA pour la relation client : réponses automatisées, AIRO Voice</div><span class="tag">public</span></div><div class="card fact"><div class="k">Pourquoi ce poste</div><div class="v">Les CSM passent trop de temps sur ce qui pourrait être automatisé</div><span class="tag hyp">mon hypothèse</span></div><div class="card fact"><div class="k">Ce qui est attendu</div><div class="v">Des résultats visibles vite, avant une feuille de route plus large</div><span class="tag hyp">mon hypothèse</span></div><div class="card fact"><div class="k">Une évidence</div><div class="v">Le chatbot du site peut s'appuyer sur vos propres produits d'IA</div><span class="tag hyp">mon hypothèse</span></div>
+</div>
+
+<h2>Le plan en trois chantiers</h2>
+<div class="grid">
+<div class="card fact tint"><div class="k">Chantier 1</div><div class="v">Des outils et des process sans friction</div><p>CRM, Zendesk, escalations.</p></div>
+<div class="card fact tint"><div class="k">Chantier 2</div><div class="v">La voix du client, mesurée et transformée en actions</div><p>NPS, CSAT, reporting, retours clients.</p></div>
+<div class="card fact tint"><div class="k">Chantier 3</div><div class="v">L'IA au service des clients et des CSM</div><p>Supports de réunion automatisés, chatbot, nouveaux leviers.</p></div>
+</div>
+<div class="card" style="margin-top:12px">
+<div class="label">Au jour 100, vous aurez</div>
+<ul>
+<li>De premiers quick wins livrés dès le premier mois, dont la préparation automatisée des réunions CSM.</li>
+<li>Un process d'escalation clarifié dans Zendesk et le CRM.</li>
+<li>Un reporting NPS et CSAT suivi chaque mois, relié à un plan d'actions.</li>
+<li>Un chatbot en ligne sur un premier périmètre, et la roadmap des 12 prochains mois.</li>
+</ul>
+</div>
+
+<h2>Les chantiers en détail</h2>
+<p class="legend">Cliquez sur un chantier pour l'ouvrir.</p>
+<details class="ws">
+<summary class="ws-head" data-goatcounter-click="detail-ringover-1" data-goatcounter-title="Ringover : chantier 1"><span class="ws-num">Chantier 1</span><h3>Des outils et des process sans friction</h3><p>Un client qui escalade une fois de trop devient un client qui part.</p><span class="ws-toggle" data-closed="Voir le détail ▾" data-open="Replier ▴"></span></summary>
+<div class="ws-cols">
+<div><div class="label">Ce que je regarderai</div><ul><li>Le parcours d'une escalation, de la demande à la résolution.</li><li>L'usage réel de Zendesk et du CRM par les équipes.</li><li>Les tâches répétées qui ralentissent les CSM et le support.</li></ul></div>
+<div><div class="label">Ce que je ferai</div><ul><li>Clarifier le process d'escalation : qui, quand, sous quel délai.</li><li>Configurer Zendesk et le CRM autour de ce process.</li><li>Livrer des améliorations courtes, une par une, et en mesurer l'effet.</li></ul></div>
+<div><div class="label">Ce que vous aurez</div><p>Un process d'escalation écrit et des outils configurés autour.</p><div class="label">Indicateur</div><p>Délai de résolution des escalations.</p></div>
+</div>
+<div class="ws-foot">
+<div class="done"><span>Déjà fait</span>Modernisation de Zendesk et refonte de l'attribution des comptes au Groupe Figaro. Restructuration du pôle Care.</div>
+<div class="check"><span>À valider avec vous</span>Les irritants que vous voulez voir traités en premier.</div>
+</div>
+</details>
+<details class="ws">
+<summary class="ws-head" data-goatcounter-click="detail-ringover-2" data-goatcounter-title="Ringover : chantier 2"><span class="ws-num">Chantier 2</span><h3>La voix du client, mesurée et transformée en actions</h3><p>Un NPS qui ne déclenche aucune action est un chiffre de plus.</p><span class="ws-toggle" data-closed="Voir le détail ▾" data-open="Replier ▴"></span></summary>
+<div class="ws-cols">
+<div><div class="label">Ce que je regarderai</div><ul><li>Comment le NPS et le CSAT sont collectés aujourd'hui.</li><li>Où arrivent les retours clients, et qui les lit.</li><li>Le reporting existant et ce qu'il permet de décider.</li></ul></div>
+<div><div class="label">Ce que je ferai</div><ul><li>Un reporting NPS et CSAT simple, par segment, chaque mois.</li><li>Une boucle de retour : chaque retour classé, chaque thème suivi d'une action.</li><li>Un point régulier avec le Produit sur les thèmes récurrents.</li></ul></div>
+<div><div class="label">Ce que vous aurez</div><p>Un reporting de satisfaction et un plan d'actions suivi.</p><div class="label">Indicateur</div><p>NPS et CSAT, suivis chaque mois.</p></div>
+</div>
+<div class="ws-foot">
+<div class="done"><span>Déjà fait</span>Churn de 60 % à 49 % en 12 mois chez Golden Bees, grâce à la qualité de service et à la data-visualisation client. Cadres de performance incluant le NPS.</div>
+<div class="check"><span>À valider avec vous</span>Les outils de collecte du NPS et du CSAT déjà en place.</div>
+</div>
+</details>
+<details class="ws">
+<summary class="ws-head" data-goatcounter-click="detail-ringover-3" data-goatcounter-title="Ringover : chantier 3"><span class="ws-num">Chantier 3</span><h3>L'IA au service des clients et des CSM</h3><p>L'IA doit rendre du temps aux CSM pour la relation, pas la remplacer.</p><span class="ws-toggle" data-closed="Voir le détail ▾" data-open="Replier ▴"></span></summary>
+<div class="ws-cols">
+<div><div class="label">Ce que je regarderai</div><ul><li>Le temps passé par un CSM à préparer une réunion client.</li><li>Les questions les plus fréquentes posées sur le site.</li><li>Les produits d'IA de Ringover réutilisables en interne.</li></ul></div>
+<div><div class="label">Ce que je ferai</div><ul><li>Automatiser la préparation des supports de réunion des CSM.</li><li>Lancer un chatbot sur un premier périmètre, avec relais vers un humain.</li><li>Tester d'autres leviers et ne garder que ceux qui font gagner du temps.</li></ul></div>
+<div><div class="label">Ce que vous aurez</div><p>Des supports de réunion automatisés et un chatbot en ligne.</p><div class="label">Indicateur</div><p>Temps de préparation d'une réunion client par CSM.</p></div>
+</div>
+<div class="ws-foot">
+<div class="done"><span>Déjà fait</span>J'ai déjà construit ce scénario sur n8n : Google Meet → brief client structuré → agent IA → présentation Gamma, avec 80 % du temps de recommandation gagné. Agents IA déployés sur le support au Groupe Figaro.</div>
+<div class="check"><span>À valider avec vous</span>Les sources de données que les CSM utilisent pour préparer leurs réunions.</div>
+</div>
+</details>
+
+<h2>Calendrier</h2>
+<div class="card table-wrap"><table>
+<thead><tr><th>Chantier</th><th>Comprendre<br>jours 1 à 30</th><th>Premiers résultats<br>jours 31 à 60</th><th>Structurer et pérenniser<br>jours 61 à 100</th></tr></thead>
+<tbody>
+<tr><td><strong>1. Outils et process</strong></td><td>Suivre des escalations de bout en bout. Rencontrer support, CSM et Produit.</td><td>Process d'escalation clarifié. Zendesk et CRM configurés.</td><td>Améliorations continues, mesurées. Roadmap outils.</td></tr>
+<tr><td><strong>2. Voix du client</strong></td><td>Faire l'état des lieux du NPS, du CSAT et des retours.</td><td>Reporting mensuel en place. Premiers thèmes traités.</td><td>Boucle de retour installée avec le Produit.</td></tr>
+<tr><td><strong>3. IA</strong></td><td>Premier quick win : préparation automatisée des réunions pour un groupe pilote de CSM.</td><td>Extension à l'équipe. Chatbot conçu et testé.</td><td>Chatbot en ligne sur un premier périmètre. Roadmap IA à 12 mois.</td></tr>
+</tbody></table></div>
+
+<div class="grid" style="margin-top:12px">
+<div class="card"><h3>Ce que je ne ferai pas</h3><ul>
+<li>Changer d'outil avant d'avoir tiré parti de Zendesk et du CRM.</li>
+<li>Lancer un chatbot qui laisse un client sans issue : toujours un relais vers un humain.</li>
+<li>Automatiser au détriment de la relation client.</li>
+</ul></div>
+<div class="card"><h3>Ce dont j'aurai besoin</h3><ul>
+<li>Un accès à Zendesk, au CRM et aux données NPS et CSAT dès la première semaine.</li>
+<li>Du temps aux côtés des CSM et du support pendant le premier mois.</li>
+<li>Un point hebdomadaire avec le Chief Customer Officer.</li>
+</ul></div>
+<div class="card"><h3>Ma position, en toute franchise</h3>
+<p>Je ne connais pas encore la téléphonie cloud ni vos produits, et je n'ai pas lancé de chatbot sur un site public. Ce que j'apporte : j'ai dirigé le Customer Success, je sais ce dont une direction client a besoin, et je construis moi-même les automatisations.</p></div>
+</div>
+
+<h2>Couverture des missions du poste</h2>
+<div class="card table-wrap"><table>
+<thead><tr><th>Mission de l'offre</th><th>Où</th><th>Ce que vous aurez en main</th></tr></thead>
+<tbody>
+<tr><td><strong>Projets d'amélioration continue</strong> : efficacité, productivité, qualité de service</td><td>Chantiers 1 et 3 · toutes phases</td><td>Améliorations livrées et mesurées</td></tr>
+<tr><td><strong>Outils et escalations</strong> : déployer et optimiser le CRM et Zendesk, fluidifier les escalations</td><td>Chantier 1 · toutes phases</td><td>Process d'escalation écrit, outils configurés</td></tr>
+<tr><td><strong>Performance et satisfaction client</strong> : NPS, CSAT, reporting, retours clients</td><td>Chantier 2 · toutes phases</td><td>Reporting mensuel, boucle de retour</td></tr>
+<tr><td><strong>Supports de réunion des CSM</strong> : automatiser leur création</td><td>Chantier 3 · jours 1 à 60</td><td>Préparation automatisée des réunions</td></tr>
+<tr><td><strong>Chatbot et IA</strong> : lancer un chatbot sur le site, explorer l'automatisation et l'IA</td><td>Chantier 3 · jours 31 à 100</td><td>Chatbot en ligne, roadmap IA</td></tr>
+</tbody></table></div>
+
+<h2>Ce que je ne sais pas encore</h2>
+<div class="card">
+<p>Ce plan est une base de discussion. Ces réponses le feraient évoluer :</p>
+<ul>
+<li>Quel CRM utilisez-vous, et comment est-il relié à Zendesk ?</li>
+<li>Comment le NPS et le CSAT sont-ils collectés aujourd'hui ?</li>
+<li>Le chatbot doit-il s'appuyer sur vos produits d'IA, ou sur un outil tiers ?</li>
+<li>Comment le poste s'articulera-t-il avec le futur Head of CSM ?</li>
+</ul>
+</div>
+
+<div class="card cta-block" style="margin-top:24px">
+<h3>Confrontons ce plan à votre réalité</h3>
+<p>Vingt minutes suffisent pour me dire où je vois juste et où je me trompe.</p>
+<a class="cta" href="https://calendar.app.google/NYQLfD6jTTK2rtkw7" target="_blank" rel="noopener" data-goatcounter-click="book-meeting-ringover-bas" data-goatcounter-title="Ringover : rendez-vous (bas)">Réserver un créneau dans mon agenda</a><a class="cta ghost" href="CV_Thomas_Bousseau.pdf" target="_blank" rel="noopener" data-goatcounter-click="cv-ringover-bas" data-goatcounter-title="Ringover : CV (bas)">Voir mon CV</a>
+</div>
+
+<footer>
+<p>Thomas Bousseau · thomas.bousseau@gmail.com</p>
+<p class="sources">Sources publiques consultées le 5 octobre 2026 : <a href="https://careers.ringover.com/jobs/8095371-customer-operations-manager-h-f">offre Ringover</a> · <a href="https://www.ringover.fr/">ringover.fr</a> · <a href="https://careers.ringover.com/">careers.ringover.com</a></p>
+</footer>
+</main>
+<script>window.addEventListener('beforeprint',function(){document.querySelectorAll('details').forEach(function(d){d.open=true;});});</script>
+</body>
+</html>
