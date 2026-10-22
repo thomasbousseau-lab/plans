@@ -121,6 +121,32 @@
   @media (max-width: 720px) { .ws-cols, .ws-foot { grid-template-columns: 1fr; } }
   @media (max-width: 620px) { summary.ws-head { padding-right: 18px; } .ws-toggle { position: static; display: inline-block; transform: none; margin-top: 8px; } }
   @media (max-width: 480px) { .mission .grid { grid-template-columns: 1fr; } }
+  /* format court (2026-10-21) : vidéo, réalisations, chantiers à deux colonnes */
+  .video { margin-top: 16px; }
+  .video-frame { position: relative; aspect-ratio: 16 / 9; max-width: 640px; margin: 0 auto; border-radius: var(--radius); overflow: hidden; background: var(--head-bg); }
+  .video-frame iframe, .video-play, .video-play img { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .video-play { padding: 0; cursor: pointer; background: none; }
+  .video-play img { object-fit: cover; }
+  .video-icon { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 74px; height: 74px; border-radius: 50%;
+                background: var(--btn-bg); color: var(--btn-fg); font-size: 28px; line-height: 74px; text-align: center; box-shadow: 0 4px 18px rgba(0,0,0,.25); }
+  .video-frame.placeholder { display: flex; align-items: center; justify-content: center; color: var(--head-fg); opacity: .85; font-size: 14px; text-align: center; padding: 16px; }
+  .video-cap { text-align: center; color: var(--muted); font-size: 13px; margin: 6px 0 0; }
+  .print-only { display: none; }
+  .proofs { display: grid; gap: 12px; grid-template-columns: repeat(4, 1fr); }
+  .proof-card { background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--btn-bg); border-radius: var(--radius); padding: 14px 16px; }
+  .proof-card .proof-mission { font-size: 11.5px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 6px; }
+  .proof-card .n { font-size: 30px; line-height: 1.1; font-weight: 700; color: var(--ink); }
+  .proof-card .w { font-weight: 600; margin: 4px 0 2px; }
+  .proof-card .c { color: var(--muted); font-size: 13px; }
+  .proof-card .x { margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--line); font-size: 13px; }
+  .franchise { color: var(--muted); font-size: 14px; margin-top: 10px; }
+  .ws-head .d100 { margin-top: 6px; opacity: 1; }
+  .ws-head .d100 b { color: var(--head-accent); }
+  .ws-cols.two { grid-template-columns: 1fr 1.4fr; }
+  ul.phased { list-style: none; padding-left: 0; } ul.phased li { margin-bottom: 6px; } ul.phased b { display: block; font-size: 12px; color: var(--accent); }
+  .ws-foot.one { grid-template-columns: 1fr; }
+  @media (max-width: 980px) { .proofs { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .proofs { grid-template-columns: 1fr; } }
   @page { size: A4; margin: 8mm 11mm; }
   @media print {
     body { background: #fff; font-size: 9px; line-height: 1.4; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
@@ -149,6 +175,15 @@
     .validate { padding: 4px 8px; border-radius: 5px; }
     table { font-size: 9px; } th, td { padding: 4px 6px; }
     footer { margin-top: 10px; padding-top: 6px; }
+    /* format court */
+    .video-frame { max-width: 300px; } .video-icon { width: 34px; height: 34px; line-height: 34px; font-size: 13px; }
+    .video-frame.placeholder { font-size: 9px; }
+    .video-cap { font-size: 8.5px; } .print-only { display: inline; }
+    .proofs { gap: 6px; grid-template-columns: repeat(4, 1fr); }
+    .proof-card { padding: 5px 7px; border-top-width: 2px; break-inside: avoid; }
+    .proof-card .proof-mission { font-size: 7px; margin-bottom: 2px; } .proof-card .n { font-size: 14px; }
+    .proof-card .w { font-size: 8px; margin: 1px 0; } .proof-card .c, .proof-card .x { font-size: 7.5px; } .proof-card .x { margin-top: 3px; padding-top: 3px; }
+    .franchise { font-size: 8.5px; margin-top: 4px; }
     /* composants communs */
     header.band { padding: 12px 14px 10px; }
     .cta { font-size: 9px; padding: 4px 10px; margin: 6px 6px 0 0; border-width: 1px; }
@@ -198,122 +233,66 @@
 <header class="band">
 <div class="eyebrow">Chance · Head of Delivery Experience / Operations</div>
 <h1>Mes 100 premiers jours : une seule équipe au service des <em>membres</em></h1>
-<p class="lede">Customer Success, Coach Experience, B2B, partenariats : quatre équipes qui servent les mêmes membres. En comité de direction, j'ai déjà réuni le service client et les opérations autour de quelques indicateurs, en pilotant l'expérience et les coûts en même temps. Et je suis toujours resté un doer : j'ai lancé un SaaS, créé et dirigé une entreprise, et mis en place moi-même les outils de mes équipes. Voici comment je m'y prendrais chez Chance.</p>
+<p class="lede">Customer Success, coachs, B2B, partenariats : quatre équipes qui servent les mêmes membres. En comité de direction, j'ai réuni service client et opérations autour de quelques indicateurs, en pilotant l'expérience et les coûts ensemble : voici comment je m'y prendrais chez Chance.</p>
 <p class="byline">Thomas Bousseau · thomas.bousseau@gmail.com · <a href="https://www.linkedin.com/in/thomasbousseau/">LinkedIn</a> · Octobre 2026</p>
 <a class="cta" href="https://calendar.app.google/NYQLfD6jTTK2rtkw7" target="_blank" rel="noopener" data-goatcounter-click="book-meeting-chance-haut" data-goatcounter-title="Chance : rendez-vous (haut)">Réserver un créneau dans mon agenda</a><a class="cta ghost" href="CV_Thomas_Bousseau.pdf" target="_blank" rel="noopener" data-goatcounter-click="cv-chance-haut" data-goatcounter-title="Chance : CV (haut)">Voir mon CV</a>
 </header>
 
-<p class="note"><strong>Avant de lire.</strong> J'ai construit cette analyse avec les informations dont je dispose, c'est-à-dire des informations publiques. Elle est donc incomplète, et sans doute fausse par endroits. Je serais ravi d'en savoir plus pour rendre ce plan plus précis.</p>
+<p class="note"><strong>Avant de lire.</strong> Cette analyse repose sur des informations publiques : elle est incomplète, et je serais ravi d'en savoir plus pour la rendre plus précise.</p>
 
-<h2>Ce que j'ai déjà réalisé</h2>
-<div class="stats four">
-<div class="stat"><div class="n">−3 ETP<span class="delta">−20 %</span></div><div class="w">d'effectif à volume constant, par l'automatisation des workflows</div><div class="c">Golden Bees (Groupe Figaro), équipe de 15 personnes</div></div><div class="stat"><div class="n">80 %</div><div class="w">du temps de recommandation commerciale gagné</div><div class="c">Scénario orchestré sur n8n :<div class="flow"><span>Google Meet</span><i>→</i><span>brief client structuré</span><i>→</i><span>agent IA</span><i>→</i><span>Gamma</span></div></div></div><div class="stat"><div class="n">1 SaaS</div><div class="w">IA-native conçu et lancé : 10 000 utilisateurs en septembre 2026</div><div class="c">Lila, avec 1 PO et 9 développeurs</div></div><div class="stat"><div class="n">1 entreprise</div><div class="w">cofondée et dirigée pendant 5 ans</div><div class="c">Voila Vinos, Colombie : import de vin, 2 restaurants, plus de 30 salariés</div></div>
+<section class="video">
+<div class="video-frame" id="video-chance">
+<button type="button" class="video-play" aria-label="Lancer la vidéo" data-goatcounter-click="video-chance" data-goatcounter-title="Chance : vidéo lancée"
+ onclick="var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/6N7iWA3zVIg?autoplay=1&rel=0';f.allow='autoplay; encrypted-media; picture-in-picture';f.allowFullscreen=true;f.title='Vidéo de Thomas Bousseau';this.parentNode.replaceChildren(f);">
+<img src="https://i.ytimg.com/vi/6N7iWA3zVIg/hqdefault.jpg" alt="Vidéo de Thomas Bousseau pour Chance" loading="lazy">
+<span class="video-icon" aria-hidden="true">▶</span>
+</button>
 </div>
+<p class="video-cap">Mon plan en une minute. <span class="print-only">Vidéo : https://youtu.be/6N7iWA3zVIg</span></p>
+</section>
 
 <h2>Ma lecture de Chance</h2>
 <p class="legend"><span class="tag">public</span> information publiée ·
-<span class="tag hyp">mon hypothèse</span> estimation de ma part, à confirmer avec vous.</p>
+<span class="tag hyp">mon hypothèse</span> à confirmer avec vous.</p>
 <div class="grid">
-<div class="card fact"><div class="k">Bilan Chance</div><div class="v">Plus de 45 000 personnes accompagnées par plus de 200 coachs certifiés</div><span class="tag">public</span></div><div class="card fact"><div class="k">First Chance</div><div class="v">Avec Google.org : 100 000 étudiants dans 24 pays d'ici 2028</div><span class="tag">public</span></div><div class="card fact"><div class="k">Le Collectif</div><div class="v">Plus de 20 000 Chanceux qui s'entraident</div><span class="tag">public</span></div><div class="card fact"><div class="k">Pourquoi ce poste</div><div class="v">Le membre passe d'une équipe à l'autre sans pilotage commun</div><span class="tag hyp">mon hypothèse</span></div><div class="card fact"><div class="k">Le coût de delivery</div><div class="v">Il se joue d'abord sur le temps de coach par membre</div><span class="tag hyp">mon hypothèse</span></div><div class="card fact"><div class="k">Le levier</div><div class="v">Le Collectif, l'actif le plus différenciant et sans doute le moins mesuré</div><span class="tag hyp">mon hypothèse</span></div>
+<div class="card fact"><div class="k">L'enjeu</div><div class="v">Réunir quatre équipes en une organisation qui améliore à la fois l'expérience des membres et la contribution économique</div><span class="tag">public</span></div><div class="card fact"><div class="k">Ce que l'offre dit</div><div class="v">Deux programmes à délivrer : le Bilan Chance pour les adultes, et First Chance avec Google.org pour 100 000 étudiants dans 24 pays</div><span class="tag">public</span></div><div class="card fact"><div class="k">Mon hypothèse</div><div class="v">Le coût de delivery se joue sur le temps de coach, et le Collectif est l'actif le plus différenciant, mais le moins mesuré</div><span class="tag hyp">mon hypothèse</span></div>
 </div>
 
 <h2>Le plan en trois chantiers</h2>
-<div class="grid">
-<div class="card fact tint"><div class="k">Chantier 1</div><div class="v">Une seule équipe</div><p>Des rôles clairs et un tableau de bord partagé.</p></div>
-<div class="card fact tint"><div class="k">Chantier 2</div><div class="v">La réussite des membres</div><p>De l'entrée dans un programme à son aboutissement.</p></div>
-<div class="card fact tint"><div class="k">Chantier 3</div><div class="v">Le Collectif et la suite</div><p>Connexions Chance et prochaines activités.</p></div>
-</div>
-<div class="card" style="margin-top:12px">
-<div class="label">Au jour 100, vous aurez</div>
-<ul>
-<li>Une équipe unifiée, avec des responsabilités claires entre Customer Success, coachs, B2B et partenariats.</li>
-<li>Un tableau de bord commun : expérience, engagement, complétion, coût de delivery, contribution économique.</li>
-<li>Des premières automatisations qui rendent du temps aux équipes et aux coachs.</li>
-<li>Un bilan chiffré et une feuille de route à 12 mois, avec une nouvelle activité testée ou cadrée.</li>
-</ul>
-</div>
-
-<h2>Les chantiers en détail</h2>
-<p class="legend">Cliquez sur un chantier pour l'ouvrir.</p>
+<p class="legend">Cliquez sur un chantier pour voir le détail, phase par phase.</p>
 <details class="ws">
-<summary class="ws-head" data-goatcounter-click="detail-chance-1" data-goatcounter-title="Chance : chantier 1"><span class="ws-num">Chantier 1</span><h3>Une seule équipe</h3><p>Quatre équipes, un même membre : il faut un fonctionnement commun et quelques indicateurs partagés.</p><span class="ws-toggle" data-closed="Voir le détail ▾" data-open="Replier ▴"></span></summary>
-<div class="ws-cols">
-<div><div class="label">Ce que je regarderai</div><ul><li>Qui fait quoi aujourd'hui, et où le membre est perdu entre deux équipes.</li><li>Les indicateurs suivis par chaque équipe, et leur fiabilité.</li><li>Les tâches répétées à la main dans les quatre équipes.</li></ul></div>
-<div><div class="label">Ce que je ferai</div><ul><li>Clarifier les rôles et les passages de relais avec les équipes.</li><li>Installer un tableau de bord commun et un rituel de pilotage court.</li><li>Automatiser d'abord les tâches répétées, avec l'IA là où elle aide vraiment.</li></ul></div>
-<div><div class="label">Ce que vous aurez</div><p>Une organisation lisible et un pilotage partagé.</p><div class="label">Indicateur</div><p>Coût de delivery par membre.</p></div>
+<summary class="ws-head" data-goatcounter-click="detail-chance-1" data-goatcounter-title="Chance : chantier 1"><span class="ws-num">Chantier 1</span><h3>Réunir les équipes autour d'un pilotage commun</h3><p>Quatre équipes, un même membre : il faut des rôles clairs et quelques indicateurs partagés.</p><p class="d100"><b>Au jour 100 :</b> une organisation lisible, un tableau de bord commun, et des comptes B2B suivis un par un.</p><span class="ws-toggle" data-closed="Voir le détail ▾" data-open="Replier ▴"></span></summary>
+<div class="ws-cols two">
+<div><div class="label">Ce que je regarderai</div><ul><li>Qui fait quoi aujourd'hui, et où le membre se perd entre deux équipes.</li><li>Les indicateurs de chaque équipe, et leur fiabilité.</li><li>Les comptes B2B et partenaires : activation, renouvellement.</li></ul></div>
+<div><div class="label">Ce que je ferai</div><ul class="phased"><li><b>Jours 1-30</b> Rencontrer chaque personne des quatre équipes ; recenser les indicateurs et les tâches répétées.</li><li><b>Jours 31-60</b> Rôles et passages de relais clarifiés ; tableau de bord commun : expérience, coût de delivery, contribution.</li><li><b>Jours 61-100</b> Rituel de pilotage court installé ; premières automatisations ; bilan chiffré.</li></ul></div>
 </div>
-<div class="ws-foot">
-<div class="done"><span>Déjà fait</span>COO de Golden Bees : service client et media traders réunis dans un flux unique, du brief au reporting. Churn −11 pts et −3 ETP à volume constant.</div>
-<div class="check"><span>À valider avec vous</span>Les indicateurs que la direction veut voir en premier.</div>
-</div>
+<div class="ws-foot one"><div class="check"><span>À valider avec vous</span>Les indicateurs que la direction veut voir en premier.</div></div>
 </details>
 <details class="ws">
-<summary class="ws-head" data-goatcounter-click="detail-chance-2" data-goatcounter-title="Chance : chantier 2"><span class="ws-num">Chantier 2</span><h3>La réussite des membres</h3><p>La complétion et la satisfaction font la recommandation, et la recommandation fait la croissance.</p><span class="ws-toggle" data-closed="Voir le détail ▾" data-open="Replier ▴"></span></summary>
-<div class="ws-cols">
-<div><div class="label">Ce que je regarderai</div><ul><li>Le parcours du Bilan Chance et de First Chance, étape par étape.</li><li>Où les membres décrochent, et pourquoi.</li><li>Le Voice of Member : ce qui remonte, et ce qu'on en fait.</li></ul></div>
-<div><div class="label">Ce que je ferai</div><ul><li>Corriger d'abord les points de décrochage les plus coûteux.</li><li>Donner aux coachs un cadre clair et des outils qui leur font gagner du temps.</li><li>Faire remonter le Voice of Member au produit chaque mois.</li></ul></div>
-<div><div class="label">Ce que vous aurez</div><p>Un parcours plus simple, et des coachs mieux outillés.</p><div class="label">Indicateur</div><p>Taux de complétion des parcours.</p></div>
+<summary class="ws-head" data-goatcounter-click="detail-chance-2" data-goatcounter-title="Chance : chantier 2"><span class="ws-num">Chantier 2</span><h3>Faire réussir chaque membre</h3><p>La complétion et la satisfaction font la recommandation, et la recommandation fait la croissance.</p><p class="d100"><b>Au jour 100 :</b> des parcours plus simples, des coachs mieux outillés, et le Voice of Member relié au produit.</p><span class="ws-toggle" data-closed="Voir le détail ▾" data-open="Replier ▴"></span></summary>
+<div class="ws-cols two">
+<div><div class="label">Ce que je regarderai</div><ul><li>Le Bilan Chance et First Chance, étape par étape : où les membres décrochent.</li><li>Le cadre de travail des coachs et ce qui leur prend du temps.</li><li>Ce que remonte le Voice of Member, et ce qu'on en fait.</li></ul></div>
+<div><div class="label">Ce que je ferai</div><ul class="phased"><li><b>Jours 1-30</b> Suivre les deux parcours de bout en bout ; écouter des membres et des coachs.</li><li><b>Jours 31-60</b> Corriger les points de décrochage les plus coûteux ; outils qui font gagner du temps aux coachs.</li><li><b>Jours 61-100</b> Remontée mensuelle du Voice of Member au produit, avec les effets mesurés.</li></ul></div>
 </div>
-<div class="ws-foot">
-<div class="done"><span>Déjà fait</span>Directeur Customer Success au Groupe Figaro : refonte du pôle Care et agents IA sur le support. Churn −3 pts sur un an.</div>
-<div class="check"><span>À valider avec vous</span>Le statut des coachs et la façon dont ils sont rémunérés.</div>
-</div>
+<div class="ws-foot one"><div class="check"><span>À valider avec vous</span>Le statut des coachs et leur mode de rémunération.</div></div>
 </details>
 <details class="ws">
-<summary class="ws-head" data-goatcounter-click="detail-chance-3" data-goatcounter-title="Chance : chantier 3"><span class="ws-num">Chantier 3</span><h3>Le Collectif et la suite</h3><p>Un Collectif utile grandit grâce à ses membres, et peut porter de nouvelles activités.</p><span class="ws-toggle" data-closed="Voir le détail ▾" data-open="Replier ▴"></span></summary>
-<div class="ws-cols">
-<div><div class="label">Ce que je regarderai</div><ul><li>Les Connexions Chance : combien sont demandées, combien aboutissent.</li><li>Les clients B2B et partenaires : activation et renouvellement.</li><li>Les pistes de nouvelles activités déjà identifiées.</li></ul></div>
-<div><div class="label">Ce que je ferai</div><ul><li>Mesurer ce qui rend une connexion utile, et le renforcer.</li><li>Un suivi simple de chaque compte B2B et partenaire.</li><li>Tester une nouvelle activité à petite échelle, avec la General Manager.</li></ul></div>
-<div><div class="label">Ce que vous aurez</div><p>Un Collectif mesuré, et une première activité testée.</p><div class="label">Indicateur</div><p>Part des connexions qui aboutissent.</p></div>
+<summary class="ws-head" data-goatcounter-click="detail-chance-3" data-goatcounter-title="Chance : chantier 3"><span class="ws-num">Chantier 3</span><h3>Faire grandir le Collectif et les nouvelles activités</h3><p>Un Collectif utile grandit grâce à ses membres, et peut porter les prochaines activités.</p><p class="d100"><b>Au jour 100 :</b> des Connexions Chance mesurées, et une nouvelle activité cadrée ou testée.</p><span class="ws-toggle" data-closed="Voir le détail ▾" data-open="Replier ▴"></span></summary>
+<div class="ws-cols two">
+<div><div class="label">Ce que je regarderai</div><ul><li>Les Connexions Chance : combien sont demandées, combien aboutissent.</li><li>Ce qui rend une connexion utile aux yeux des membres.</li><li>Les pistes de nouvelles activités déjà identifiées.</li></ul></div>
+<div><div class="label">Ce que je ferai</div><ul class="phased"><li><b>Jours 1-30</b> Mesurer les Connexions Chance et l'engagement dans le Collectif.</li><li><b>Jours 31-60</b> Renforcer ce qui marche ; cadrer une nouvelle activité avec la General Manager.</li><li><b>Jours 61-100</b> Premier test lancé ; feuille de route à 12 mois.</li></ul></div>
 </div>
-<div class="ws-foot">
-<div class="done"><span>Déjà fait</span>Lila conçu et lancé : 10 000 utilisateurs en septembre 2026. 43 nouveaux partenaires intégrés (30 ATS et 13 jobboards) chez Golden Bees.</div>
-<div class="check"><span>À valider avec vous</span>Les nouvelles activités prioritaires pour le comité de direction.</div>
-</div>
+<div class="ws-foot one"><div class="check"><span>À valider avec vous</span>Les nouvelles activités prioritaires pour le comité de direction.</div></div>
 </details>
 
-<h2>Calendrier</h2>
-<div class="card table-wrap"><table>
-<thead><tr><th>Chantier</th><th>Comprendre<br>jours 1 à 30</th><th>Premiers résultats<br>jours 31 à 60</th><th>Structurer et pérenniser<br>jours 61 à 100</th></tr></thead>
-<tbody>
-<tr><td><strong>1. Une seule équipe</strong></td><td>Rencontrer chaque personne des quatre équipes. Recenser les indicateurs et les tâches répétées.</td><td>Rôles clarifiés. Premier tableau de bord commun. Premières automatisations.</td><td>Rituel de pilotage installé. Bilan chiffré.</td></tr>
-<tr><td><strong>2. Les membres</strong></td><td>Suivre les deux parcours de bout en bout. Écouter des membres et des coachs.</td><td>Premiers points de décrochage corrigés. Cadre coach clarifié.</td><td>Voice of Member relié au produit chaque mois.</td></tr>
-<tr><td><strong>3. Le Collectif et la suite</strong></td><td>Mesurer les Connexions Chance. Revoir chaque compte B2B.</td><td>Suivi des comptes en place. Une nouvelle activité cadrée.</td><td>Premier test lancé. Feuille de route à 12 mois.</td></tr>
-</tbody></table></div>
-
-<div class="grid" style="margin-top:12px">
-<div class="card"><h3>Ce que je ne ferai pas</h3><ul>
-<li>Réorganiser avant d'avoir écouté chaque équipe et des membres.</li>
-<li>Ajouter des indicateurs : j'en garderai peu, et utiles.</li>
-<li>Automatiser ce qui fait la valeur humaine de l'accompagnement.</li>
-</ul></div>
-<div class="card"><h3>Ce dont j'aurai besoin</h3><ul>
-<li>Un point régulier avec Nicolas, surtout le premier mois.</li>
-<li>Un accès aux données des parcours, des coachs et des comptes B2B.</li>
-<li>Pouvoir suivre un Bilan Chance du côté du membre.</li>
-</ul></div>
-<div class="card"><h3>Ma position, en toute franchise</h3>
-<p>Je ne connais pas encore le monde de l'orientation ni celui des coachs indépendants. Ce que j'apporte : j'ai réuni service client et opérations en comité de direction, piloté l'expérience et les coûts ensemble, et lancé un produit de zéro.</p></div>
-</div>
-
-<h2>Couverture des missions du poste</h2>
-<div class="card table-wrap"><table>
-<thead><tr><th>Mission de l'offre</th><th>Où</th><th>Ce que vous aurez en main</th></tr></thead>
-<tbody>
-<tr><td><strong>Organisation unifiée</strong> : rôles, interfaces, indicateurs, données, automatisation, IA</td><td>Chantier 1 · toutes phases</td><td>Rôles clairs, tableau de bord commun</td></tr>
-<tr><td><strong>Réussite des membres</strong> : Bilan Chance, First Chance, Voice of Member</td><td>Chantier 2 · toutes phases</td><td>Parcours simplifiés, complétion suivie</td></tr>
-<tr><td><strong>Écosystème des coachs</strong> : cadre, qualité, engagement</td><td>Chantier 2 · jours 31 à 100</td><td>Cadre coach clarifié, outils qui font gagner du temps</td></tr>
-<tr><td><strong>Connexions Chance</strong> : Collectif, belonging, repeat</td><td>Chantier 3 · toutes phases</td><td>Connexions mesurées et renforcées</td></tr>
-<tr><td><strong>B2B et partenariats</strong> : activation, renouvellement, chiffre d'affaires</td><td>Chantier 3 · jours 1 à 60</td><td>Suivi de chaque compte</td></tr>
-<tr><td><strong>Prochaines activités</strong> : explorer, tester, passer à l'échelle</td><td>Chantier 3 · jours 61 à 100</td><td>Une activité cadrée et testée</td></tr>
-</tbody></table></div>
+<h2>Ce que j'ai déjà fait, au plus près de vos missions</h2>
+<div class="proofs"><div class="proof-card"><div class="proof-mission">Organisation unifiée</div><div class="n">−3 ETP</div><div class="w">à volume constant, soit −20 % d'effectif</div><div class="c">Golden Bees : 15 personnes (CS et media traders) réunies dans un flux unique, du brief au reporting</div><div class="x">Framework de KPI d'activité et de performance relié aux primes</div></div><div class="proof-card"><div class="proof-mission">Réussite des membres</div><div class="n">−11 pts</div><div class="w">de churn en 12 mois (60 % → 49 %)</div><div class="c">Golden Bees : qualité de service et data-visualisation client</div><div class="x">Churn −3 pts sur un an au Groupe Figaro ; NPS piloté comme COO</div></div><div class="proof-card"><div class="proof-mission">L'IA pour augmenter les équipes</div><div class="n">−80 %</div><div class="w">de temps de préparation des bilans clients</div><div class="c">Groupe Figaro : workflow n8n et agent IA ; du temps rendu aux CSM pour le contact client</div><div class="x">Agents IA mis en production sur le support du pôle Care</div></div><div class="proof-card"><div class="proof-mission">Nouvelles activités</div><div class="n">10 000</div><div class="w">utilisateurs pour Lila en septembre 2026</div><div class="c">Groupe Figaro : SaaS de recrutement IA-native, conçu et lancé avec 1 PO et 9 développeurs</div><div class="x">Voila Vinos : entreprise cofondée et dirigée 5 ans, plus de 30 salariés</div></div></div>
+<p class="franchise"><strong>En toute franchise :</strong> je ne connais pas encore le monde de l'orientation ni celui des coachs indépendants. Ce que j'apporte : j'ai réuni service client et opérations en comité de direction, piloté l'expérience et les coûts ensemble, et lancé un produit de zéro dans l'emploi et le recrutement.</p>
 
 <h2>Ce que je ne sais pas encore</h2>
 <div class="card">
-<p>Ce plan est une base de discussion. Ces réponses le feraient évoluer :</p>
 <ul>
 <li>Quelle est aujourd'hui la contribution économique de chaque programme ?</li>
-<li>Combien de personnes dans chacune des quatre équipes ?</li>
 <li>Comment travaillez-vous avec les coachs : indépendants, rémunérés à la séance ?</li>
 <li>Quelles nouvelles activités le comité de direction regarde-t-il en priorité ?</li>
 </ul>
